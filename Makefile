@@ -1,4 +1,10 @@
 
+.DEFAULT_GOAL := playbook
+
+playbook:
+	ansible-playbook playbook.yml
+
 bootstrap:
-	pacman -S python python-pip ansible
+	pacman -Sy --noconfirm python python-pip ansible
+
 

@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  vars_files:
+    - vars/ansible.yml
+    - vars/user.yml
+  roles:
+    - core
+    - user
