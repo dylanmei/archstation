@@ -1,5 +1,5 @@
-my-battleschool
+workstation
 ---------------
 
-A [Battleschool](https://github.com/spencergibb/battleschool) setup for my Archlinux laptop.
+Ansible setup for my Archlinux workstation.
 
