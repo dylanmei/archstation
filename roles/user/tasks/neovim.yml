@@ -1,0 +1,10 @@
+---
+- name: install neovim
+  pacman: name=neovim state=present
+
+- name: neovim config directory
+  file: dest=/home/{{ user }}/.config/nvim state=directory owner={{ user }} group={{ user }}
+
+- name: neovim config init.vim
+  copy: dest=/home/{{ user }}/.config/nvim/init.vim src=neovim.vim owner={{ user }} group={{ user }}
+

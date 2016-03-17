@@ -38,3 +38,5 @@
 
 - name: gitignore
   copy: src=files/gitignore dest=/home/{{ user }}/.gitignore owner={{ user }} group={{ user }}
+
+- include: neovim.yml
