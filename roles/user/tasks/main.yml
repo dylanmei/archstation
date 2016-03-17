@@ -22,6 +22,14 @@
     - .config
     - src
 
+- name: ensure sudo
+  copy:
+    dest: /etc/sudoers.d/{{ user }}
+    content: "{{ user }} ALL=(ALL) ALL"
+    mode: 0440
+    owner: root
+    group: root
+
 - name: zshrc
   copy: src=files/zshrc dest=/home/{{ user }}/.zshrc owner={{ user }} group={{ user }}
 
