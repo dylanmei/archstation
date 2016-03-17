@@ -1,20 +1,23 @@
 ---
+- include_vars: secrets.yml
+
 - name: ensure main user
-  user: >
-    name={{ user }}
-    generate_ssh_key=no
-    groups=users,wheel
-    home=/home/{{ user }}
-    createhome=yes
-    shell=/usr/bin/zsh
+  user:
+    name: "{{ user }}"
+    groups: users,wheel
+    password: "{{ password }}"
+    createhome: yes
+    home: "/home/{{ user }}"
+    shell: /usr/bin/zsh
+    generate_ssh_key: no
 
 - name: ensure user directories
-  file: >
-    path=/home/{{ user }}/{{ item }}
-    owner={{ user }}
-    group={{ user }}
-    mode=0755
-    state=directory
+  file:
+    path: /home/{{ user }}/{{ item }}
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: 0755
+    state: directory
   with_items:
     - .config
     - src
