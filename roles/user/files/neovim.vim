@@ -1,4 +1,13 @@
+" https://github.com/junegunn/vim-plug
+call plug#begin()
+
+Plug 'scrooloose/syntastic'
+Plug 'chase/vim-ansible-yaml'
+
+call plug#end()
+
 syntax on
+set encoding=utf-8
 
 let mapleader=" "
 set noswapfile

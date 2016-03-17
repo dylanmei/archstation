@@ -8,3 +8,16 @@
 - name: neovim config init.vim
   copy: dest=/home/{{ user }}/.config/nvim/init.vim src=neovim.vim owner={{ user }} group={{ user }}
 
+- name: neovim autoload directory
+  file: dest=/home/{{ user }}/.config/nvim/autoload state=directory owner={{ user }} group={{ user }}
+
+- stat: path=/home/{{ user }}/.config/nvim/autoload/plug.vim
+  register: vim_plug
+
+- name: install vim-plug
+  get_url:
+    url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    dest: "/home/{{ user }}/.config/nvim/autoload/plug.vim"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+  when: vim_plug.stat.exists == False
