@@ -1,0 +1,7 @@
+---
+- name: gitconfig
+  template: src=gitconfig.j2 dest=/home/{{ user }}/.gitconfig owner={{ user }} group={{ user }}
+
+- name: gitignore
+  copy: src=files/gitignore dest=/home/{{ user }}/.gitignore owner={{ user }} group={{ user }}
+
