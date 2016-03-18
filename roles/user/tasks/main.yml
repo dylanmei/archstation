@@ -33,3 +33,4 @@
 - include: zsh.yml
 - include: git.yml
 - include: neovim.yml
+- include: fonts.yml
