@@ -30,7 +30,7 @@
     owner: root
     group: root
 
-- include: zsh.yml
 - include: git.yml
+- include: shell.yml
 - include: neovim.yml
 - include: fonts.yml

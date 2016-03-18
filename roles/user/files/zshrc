@@ -2,3 +2,5 @@ PATH=/usr/local/sbin:/usr/local/bin:/usr/bin
 
 alias vim="nvim"
 alias tree="tree -C"
+
+. /etc/profile.d/fzf.zsh

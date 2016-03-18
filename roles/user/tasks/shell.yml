@@ -10,3 +10,10 @@
   with_items:
     - /home/{{ user }}/.bashrc
     - /home/{{ user }}/.bash_profile
+
+- name: install tools
+  pacman: name={{ item }} state=present
+  with_items:
+    - fzf
+    - the_silver_searcher
+    #- fasd
