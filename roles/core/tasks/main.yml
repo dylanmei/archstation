@@ -15,3 +15,5 @@
     line: "#includedir /etc/sudoers.d"
     state: present
     validate: "visudo -cf %s"
+
+- include: pacman.yml
