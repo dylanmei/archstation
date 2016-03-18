@@ -1,4 +1,7 @@
 ---
+- name: install zsh
+  pacman: name=zsh state=present
+
 - name: zshrc
   copy: src=files/zshrc dest=/home/{{ user }}/.zshrc owner={{ user }} group={{ user }}
 
