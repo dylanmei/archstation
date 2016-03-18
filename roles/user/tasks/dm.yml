@@ -9,3 +9,12 @@
 
 - name: setup .xinitrc
   copy: src=xinitrc dest=/home/{{ user }}/.xinitrc owner={{ user }} group={{ user }}
+
+- name: setup x configs
+  copy: src={{ item }} dest=/home/{{ user }}/.{{ item }} owner={{ user }} group={{ user }}
+  with_items:
+    - Xresources
+    - Xdefaults
+
+- name: setup i3 configs
+  copy: src=i3 dest=/home/{{ user }}/.config/i3/config owner={{ user }} group={{ user }}
