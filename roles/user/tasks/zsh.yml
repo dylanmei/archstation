@@ -1,0 +1,9 @@
+---
+- name: zshrc
+  copy: src=files/zshrc dest=/home/{{ user }}/.zshrc owner={{ user }} group={{ user }}
+
+- name: remove bashrc
+  file: src={{ item }} state=absent
+  with_items:
+    - /home/{{ user }}/.bashrc
+    - /home/{{ user }}/.bash_profile

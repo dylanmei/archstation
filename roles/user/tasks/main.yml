@@ -30,8 +30,6 @@
     owner: root
     group: root
 
-- name: zshrc
-  copy: src=files/zshrc dest=/home/{{ user }}/.zshrc owner={{ user }} group={{ user }}
-
+- include: zsh.yml
 - include: git.yml
 - include: neovim.yml
