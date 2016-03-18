@@ -17,3 +17,4 @@
     validate: "visudo -cf %s"
 
 - include: pacman.yml
+- include: display.yml

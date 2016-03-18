@@ -1,0 +1,11 @@
+---
+- name: install graphics driver
+  pacman: name=xf86-video-intel state=present
+
+- name: install xorg packages
+  pacman: name={{ item }} state=present
+  with_items:
+    - xorg-server
+    - xorg-xinit
+    - xorg-xrdb
+    - xorg-xfontsel
