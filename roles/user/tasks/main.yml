@@ -34,3 +34,4 @@
 - include: shell.yml
 - include: neovim.yml
 - include: fonts.yml
+- include: dm.yml

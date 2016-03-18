@@ -1,0 +1,11 @@
+---
+- name: install display manager
+  pacman: name={{ item }} state=present
+  with_items:
+    - rxvt-unicode
+    - i3-wm
+    - i3status
+    - dmenu
+
+- name: setup .xinitrc
+  copy: src=xinitrc dest=/home/{{ user }}/.xinitrc owner={{ user }} group={{ user }}
