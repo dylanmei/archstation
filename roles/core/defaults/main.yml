@@ -1,0 +1,4 @@
+---
+src_directory: /usr/src
+tmp_directory: /tmp
+cower_version: 1c682b7

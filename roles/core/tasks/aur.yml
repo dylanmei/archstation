@@ -1,0 +1,24 @@
+---
+- name: install aur dependencies
+  pacman: name=base-devel state=latest
+
+- name: download cower
+  git:
+    repo: "https://github.com/falconindy/cower.git"
+    dest: "{{ src_directory }}/cower"
+    version: "{{ cower_version }}"
+
+- name: build cower
+  shell: make install
+  args:
+    chdir: "{{ src_directory }}/cower"
+    creates: "/usr/local/bin/cower"
+
+# http://allanmcrae.com/2015/01/replacing-makepkg-asroot
+- name: setup /home/build
+  file:
+    path: /home/build
+    owner: nobody
+    group: nobody
+    mode: 0755
+    state: directory
