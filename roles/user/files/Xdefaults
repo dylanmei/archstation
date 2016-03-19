@@ -2,9 +2,7 @@
 ! Xft settings
 !-------------------------------------------------------------------------------
 
-Xft.dpi:        96
-Xft.antialias:  false
-Xft.rgba:       rgb
+Xft.antialias:  true
 Xft.hinting:    true
 Xft.hintstyle:  hintslight
 
@@ -16,7 +14,6 @@ Xft.hintstyle:  hintslight
 !-------------------------------------------------------------------------------
 
 URxvt.depth:          32
-!URxvt.geometry:       90x30
 URxvt.transparent:    false
 URxvt.fading:         0
 !URxvt.urgentOnBell:  true
