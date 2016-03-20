@@ -1,0 +1,9 @@
+---
+- name: assign network device names
+  copy: src=udev.network.rules dest=/etc/udev/rules.d/10-network.rules
+
+ #- name: install network packages
+ #  pacman: name={{ item }} state=present
+ #  with_items:
+ #    - wpa_supplicant
+ #    - dialog
