@@ -1,10 +1,16 @@
-passfile ?= vault_pass.txt
 srcdir   := /usr/src
+passfile ?= vault_pass.txt
+ifneq ($(tags),)
+	playbook_tags="--tags=$(tags)"
+endif
+ifneq ($(passfile),)
+	vault_password_file="--vault-password-file=$(passfile)"
+endif
 
 .DEFAULT_GOAL := playbook
 
 playbook:
-	ansible-playbook playbook.yml --tags=$(tags) --vault-password-file=$(passfile) \
+	ansible-playbook playbook.yml $(playbook_tags) $(vault_password_file) \
 		-M $(srcdir)/ansible-module-cower
 
 bootstrap:
