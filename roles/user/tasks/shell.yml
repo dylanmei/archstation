@@ -16,9 +16,15 @@
     - /home/{{ user }}/.bashrc
     - /home/{{ user }}/.bash_profile
 
-- name: install tools
+- name: install tools via pacman
   pacman: name={{ item }} state=present
   with_items:
     - fzf
     - the_silver_searcher
-    #- fasd
+
+- name: install tools via cower
+  cower: name={{ item }} state=present
+  become: yes
+  become_user: "{{ user }}"
+  with_items:
+    - fasd

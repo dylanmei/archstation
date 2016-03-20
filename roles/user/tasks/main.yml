@@ -32,6 +32,7 @@
 
 - include: git.yml
 - include: shell.yml
+  tags: ["shell"]
 - include: neovim.yml
 - include: fonts.yml
 - include: dm.yml
