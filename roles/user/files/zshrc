@@ -1,3 +1,6 @@
+#!/usr/bin/env zsh
+HISTFILE=~/.zsh_history
+SAVEHIST=8192
 PATH=/usr/local/sbin:/usr/local/bin:/usr/bin
 
 alias vim="nvim"
