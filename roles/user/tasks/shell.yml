@@ -5,6 +5,11 @@
 - name: zshrc
   copy: src=files/zshrc dest=/home/{{ user }}/.zshrc owner={{ user }} group={{ user }}
 
+- name: zpm
+  git:
+    repo: "https://github.com/horosgrisa/zpm.git"
+    dest: "/home/{{ user }}/.zpm"
+
 - name: remove bashrc
   file: path={{ item }} state=absent
   with_items:

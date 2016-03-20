@@ -3,7 +3,17 @@ HISTFILE=~/.zsh_history
 SAVEHIST=8192
 PATH=/usr/local/sbin:/usr/local/bin:/usr/bin
 
+if [[ -f ~/.zpm/zpm.zsh ]]; then
+  source ~/.zpm/zpm.zsh
+fi
+
+Plug zsh-core
+Plug zsh-users/zsh-syntax-highlighting
+Plug horosgrisa/zsh-history-substring-search
+Plug tarruda/zsh-autosuggestions
+
 alias vim="nvim"
 alias tree="tree -C"
 
+#eval $(fasd --init auto)
 . /etc/profile.d/fzf.zsh
