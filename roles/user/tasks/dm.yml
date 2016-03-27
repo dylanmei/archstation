@@ -16,5 +16,8 @@
     - Xresources
     - Xdefaults
 
+- name: i3 config directory
+  file: dest=/home/{{ user }}/.config/i3 state=directory owner={{ user }} group={{ user }}
+
 - name: setup i3 configs
   copy: src=i3 dest=/home/{{ user }}/.config/i3/config owner={{ user }} group={{ user }}
