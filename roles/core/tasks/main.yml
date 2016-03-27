@@ -5,6 +5,7 @@
     - sudo
     - curl
     - tree
+    - dnsutils
 
 - name: create sudoers directory
   file: path=/etc/sudoers.d mode=0755 state=directory
