@@ -18,3 +18,4 @@ bootstrap:
 	pacman -Sy --noconfirm curl python python-pip ansible
 	# clone cower ansible module
 	git clone https://github.com/dylanmei/ansible-module-cower.git $(srcdir)/ansible-module-cower
+	git checkout change_cower_path
