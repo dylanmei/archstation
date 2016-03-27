@@ -6,6 +6,7 @@
     - i3-wm
     - i3status
     - dmenu
+    - polkit
 
 - name: setup .xinitrc
   copy: src=xinitrc dest=/home/{{ user }}/.xinitrc owner={{ user }} group={{ user }}
