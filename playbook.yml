@@ -3,6 +3,7 @@
   vars_files:
     - vars/ansible.yml
     - vars/user.yml
+    - vars/secrets.yml
   roles:
     - core
     - user
