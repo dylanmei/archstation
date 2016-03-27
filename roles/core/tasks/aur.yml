@@ -1,6 +1,9 @@
 ---
-- name: install aur dependencies
-  pacman: name=base-devel state=latest
+- name: install aur/cower dependencies
+  pacman: name={{ item }} state=present
+  with_items:
+    - base-devel
+    - yajl
 
 - name: download cower
   git:
