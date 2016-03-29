@@ -6,5 +6,6 @@
 - include: neovim.yml
 - include: fonts.yml
 - include: dm.yml
+- include: bindkeys.yml
 - include: apps.yml
   tags: ["apps"]

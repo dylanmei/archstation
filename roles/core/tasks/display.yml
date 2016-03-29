@@ -12,6 +12,7 @@
     - xorg-xinit
     - xorg-xrdb
     - xorg-xfontsel
+    - xorg-xev
 
 - name: touchpad config
   copy: src=synaptics.conf dest=/etc/X11/xorg.conf.d/50-synaptics.conf

@@ -3,9 +3,10 @@
   pacman: name={{ item }} state=present
   with_items:
     - sudo
+    - dnsutils
+    - alsa-utils
     - curl
     - tree
-    - dnsutils
 
 - name: create sudoers directory
   file: path=/etc/sudoers.d mode=0755 state=directory

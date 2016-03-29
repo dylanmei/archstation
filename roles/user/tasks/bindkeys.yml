@@ -1,0 +1,9 @@
+---
+- name: xbindkeys
+  pacman: name=xbindkeys state=present
+
+- name: xbindkeys config directory
+  file: path=/home/{{ user }}/.config/xbindkeys state=directory owner={{ user }} group={{ user }}
+
+- name: xbindkeys config file
+  copy: src=xbindkeys dest=/home/{{ user }}/.config/xbindkeys/config owner={{ user }} group={{ user }}
