@@ -1,5 +1,12 @@
 ---
 - include: user.yml
+
+- name: home folders
+  file: path=/home/{{ user }}/{{ item }} state=directory owner={{ user }} group={{ user }}
+  with_items:
+    - Downloads
+    - Pictures
+
 - include: git.yml
 - include: shell.yml
   tags: ["shell"]

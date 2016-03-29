@@ -149,4 +149,5 @@ for_window [class="^.*"]     border pixel normal
 for_window [class="urxvt"]   border pixel 0
 hide_edge_borders both
 
+exec_always --no-startup-id sh $HOME/.fehbg
 exec --no-startup-id urxvt

@@ -7,6 +7,7 @@
     - i3status
     - dmenu
     - polkit
+    - feh
 
 - name: setup .xinitrc
   copy: src=xinitrc dest=/home/{{ user }}/.xinitrc owner={{ user }} group={{ user }}
@@ -31,3 +32,9 @@
 
 - name: startx on login
   copy: src=zlogin dest=/home/{{ user }}/.zlogin
+
+- name: default wallpaper
+  copy: src=wallpaper.jpg dest=/home/{{ user }}/Pictures/wallpaper.jpg force=no owner={{ user }} group={{ user }}
+
+- name: fehbg script
+  copy: src=fehbg.sh dest=/home/{{ user }}/.fehbg force=no owner={{ user }} group={{ user }}
