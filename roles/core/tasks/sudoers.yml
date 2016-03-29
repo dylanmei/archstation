@@ -1,0 +1,10 @@
+---
+- name: create sudoers directory
+  file: path=/etc/sudoers.d mode=0755 state=directory
+
+- name: allow includedir in sudoers config
+  lineinfile:
+    dest: /etc/sudoers
+    line: "#includedir /etc/sudoers.d"
+    state: present
+    validate: "visudo -cf %s"
