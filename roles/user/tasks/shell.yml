@@ -9,6 +9,7 @@
   git:
     repo: "https://github.com/horosgrisa/zpm.git"
     dest: "/home/{{ user }}/.zpm"
+  become_user: "{{ user }}"
 
 - name: remove bashrc
   file: path={{ item }} state=absent
@@ -24,7 +25,6 @@
 
 - name: install tools via cower
   cower: name={{ item }} state=present
-  become: yes
   become_user: "{{ user }}"
   with_items:
     - fasd
