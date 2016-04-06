@@ -6,17 +6,13 @@
     - i3-wm
     - i3status
     - dmenu
-    - polkit
     - feh
-
-- name: setup .xinitrc
-  copy: src=xinitrc dest=/home/{{ user }}/.xinitrc owner={{ user }} group={{ user }}
 
 - name: x configs
   copy: src={{ item }} dest=/home/{{ user }}/.{{ item }} owner={{ user }} group={{ user }}
   with_items:
+    - xinitrc
     - Xresources
-    - Xdefaults
 
 - name: i3 config directories
   file: dest=/home/{{ user }}/.config/{{ item }} state=directory owner={{ user }} group={{ user }}
