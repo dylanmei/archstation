@@ -21,7 +21,7 @@ URxvt.internalBorder: 5
 URxvt.lineSpace:      0
 
 ! Fonts
-URxvt.font:        xft:Inconsolata:size=14
+URxvt.font:        xft:Hack:size=14
 !URxvt.letterSpace: -1
 
 ! Scrollbar
