@@ -1,12 +1,12 @@
 #!/usr/bin/env zsh
 
-HISTFILE=~/.zsh_history
-SAVEHIST=8192
 PATH=/usr/local/sbin:/usr/local/bin:/usr/bin
-bindkey -e
+
 source ~/.zplug/zplug
 
 zplug "horosgrisa/zsh-history-substring-search"
+#zplug "zsh-users/zsh-history-substring-search"
+zplug "b4b4r07/enhancd", of:enhancd.sh
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "kasperisager/zsh-pure"
 
@@ -16,8 +16,9 @@ fi
 
 zplug load
 
-alias vim="nvim"
-alias tree="tree -C"
-
 #eval $(fasd --init auto)
-. /etc/profile.d/fzf.zsh
+source /etc/profile.d/fzf.zsh
+
+bindkey -e
+source ~/.zsh/aliases.zsh
+source ~/.zsh/history.zsh

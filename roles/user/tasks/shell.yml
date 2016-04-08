@@ -7,18 +7,25 @@
   become: yes
   become_user: "{{ user }}"
 
+- name: zsh directory
+  file: dest=/home/{{ user }}/.zsh state=directory
+  become: yes
+  become_user: "{{ user }}"
+
+- name: zsh scripts
+  copy: src=files/{{ item }} dest=/home/{{ user }}/.zsh/{{ item }}
+  with_items:
+    - aliases.zsh
+    - history.zsh
+  become: yes
+  become_user: "{{ user }}"
+
 - name: zplug
   git:
     repo: "https://github.com/b4b4r07/zplug.git"
     dest: "/home/{{ user }}/.zplug"
   become: yes
   become_user: "{{ user }}"
-
-- name: remove bashrc
-  file: path={{ item }} state=absent
-  with_items:
-    - /home/{{ user }}/.bashrc
-    - /home/{{ user }}/.bash_profile
 
 - name: install tools via pacman
   pacman: name={{ item }} state=present
@@ -31,3 +38,10 @@
   become_user: "{{ user }}"
   with_items:
     - fasd
+
+- name: remove bashrc
+  file: path={{ item }} state=absent
+  with_items:
+    - /home/{{ user }}/.bashrc
+    - /home/{{ user }}/.bash_profile
+
