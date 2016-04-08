@@ -13,6 +13,7 @@ let mapleader=" "
 set noswapfile
 set undofile
 set undodir=~/.config/nvim/undo
+set clipboard=unnamedplus
 
 set autoread
 set hidden
