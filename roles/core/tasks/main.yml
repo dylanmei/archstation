@@ -15,4 +15,6 @@
 
 - include: aur.yml
 - include: sudoers.yml
+- include: docker.yml
+  tags: ["docker"]
 - include: display.yml
