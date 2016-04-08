@@ -1,16 +1,20 @@
 #!/usr/bin/env zsh
+
 HISTFILE=~/.zsh_history
 SAVEHIST=8192
 PATH=/usr/local/sbin:/usr/local/bin:/usr/bin
+bindkey -e
+source ~/.zplug/zplug
 
-if [[ -f ~/.zpm/zpm.zsh ]]; then
-  source ~/.zpm/zpm.zsh
+zplug "horosgrisa/zsh-history-substring-search"
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "kasperisager/zsh-pure"
+
+if ! zplug check; then
+  zplug install
 fi
 
-Plug zsh-core
-Plug zsh-users/zsh-syntax-highlighting
-Plug horosgrisa/zsh-history-substring-search
-Plug tarruda/zsh-autosuggestions
+zplug load
 
 alias vim="nvim"
 alias tree="tree -C"

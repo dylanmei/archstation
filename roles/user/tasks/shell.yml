@@ -3,12 +3,15 @@
   pacman: name=zsh state=present
 
 - name: zshrc
-  copy: src=files/zshrc dest=/home/{{ user }}/.zshrc owner={{ user }} group={{ user }}
+  copy: src=files/zshrc dest=/home/{{ user }}/.zshrc
+  become: yes
+  become_user: "{{ user }}"
 
-- name: zpm
+- name: zplug
   git:
-    repo: "https://github.com/horosgrisa/zpm.git"
-    dest: "/home/{{ user }}/.zpm"
+    repo: "https://github.com/b4b4r07/zplug.git"
+    dest: "/home/{{ user }}/.zplug"
+  become: yes
   become_user: "{{ user }}"
 
 - name: remove bashrc
