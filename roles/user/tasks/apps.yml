@@ -1,6 +1,0 @@
----
-- name: install community apps
-  pacman: name={{ item }} state=present
-  tags: ["apps"]
-  with_items:
-    - firefox

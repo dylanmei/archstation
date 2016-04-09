@@ -1,0 +1,17 @@
+---
+
+- pacman: name={{ item }} state=latest
+  with_items:
+    - gtk3
+    - gconf
+    - gvfs
+    - xdg-utils
+    - libnotify
+    - libxss
+    - hunspell-en
+
+- cower: name=slack-desktop state=present
+  become: yes
+  become_user: "{{ user }}"
+  with_items:
+    - slack-desktop

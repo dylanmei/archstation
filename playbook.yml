@@ -8,3 +8,5 @@
     - role: core
     - role: user
       tags: ["user"]
+    - role: apps
+      tags: ["apps"]

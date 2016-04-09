@@ -1,0 +1,9 @@
+---
+
+- pacman: name={{ item }} state=present
+  tags: ["apps"]
+  with_items:
+    - firefox
+    - thunderbird
+
+- include: slack.yml
