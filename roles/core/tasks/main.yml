@@ -17,4 +17,5 @@
 - include: sudoers.yml
 - include: docker.yml
   tags: ["docker"]
+- include: vpn.yml
 - include: display.yml

@@ -1,0 +1,9 @@
+---
+
+- pacman: name=vpnc state=latest
+
+- stat: path=/etc/vpnc/default.conf
+  register: vpnc_conf
+
+- copy: src=vpnc.conf dest=/etc/vpnc/default.conf
+  when: not vpnc_conf.stat.exists

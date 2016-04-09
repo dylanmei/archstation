@@ -6,6 +6,7 @@
     - vars/secrets.yml
   roles:
     - role: core
+      tags: ["core"]
     - role: user
       tags: ["user"]
     - role: apps
