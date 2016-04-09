@@ -1,0 +1,22 @@
+---
+- name: yaourt dependencies
+  pacman: name={{ item }} state=present
+  with_items:
+    - base-devel
+    - rsync
+
+- name: add archlinuxfr repository to pacman
+  lineinfile:
+    dest: /etc/pacman.conf
+    state: present
+    line: "{{ item }}"
+  with_items:
+    - "[archlinuxfr]"
+    - "SigLevel = Never"
+    - "Server = http://repo.archlinux.fr/$arch"
+
+- name: install yaourt
+  pacman:
+    name: yaourt
+    state: present
+    update_cache: yes

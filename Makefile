@@ -11,11 +11,16 @@ endif
 
 playbook:
 	ansible-playbook playbook.yml $(playbook_tags) $(vault_password_file) \
-		-M $(srcdir)/ansible-module-cower
+		-M $(srcdir)/ansible-yaourt
 
-bootstrap:
+ansible:
 	# install ansible
 	pacman -Sy --noconfirm sudo curl python python-pip ansible
-	# clone cower ansible module
-	git clone https://github.com/dylanmei/ansible-module-cower.git $(srcdir)/ansible-module-cower
-	git checkout change_cower_path
+
+yaourt:
+	# scrape yaourt ansible module
+	mkdir -p $(srcdir)/ansible-yaourt
+	curl "https://raw.githubusercontent.com/TecSet/ansible-modules-extras/devel-pacman-yaourt-integration/packaging/os/yaourt.py" \
+		-o $(srcdir)/ansible-yaourt/yaourt.py
+
+bootstrap: ansible yaourt

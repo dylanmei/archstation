@@ -12,9 +12,10 @@
     - curl
     - tree
     - alsa-utils
+    - zip
 
-- include: aur.yml
 - include: sudoers.yml
+- include: yaourt.yml
 - include: docker.yml
   tags: ["docker"]
 - include: vpn.yml

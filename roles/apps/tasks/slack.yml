@@ -10,7 +10,7 @@
     - libxss
     - hunspell-en
 
-- cower: name=slack-desktop state=present
+- yaourt: name=slack-desktop state=present
   become: yes
   become_user: "{{ user }}"
   with_items:

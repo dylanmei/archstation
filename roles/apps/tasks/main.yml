@@ -1,9 +1,12 @@
 ---
 
 - pacman: name={{ item }} state=present
-  tags: ["apps"]
   with_items:
     - firefox
     - thunderbird
+
+- yaourt: name={{ item }} state=present
+  with_items:
+    - thunderbird-exchangecalendar
 
 - include: slack.yml
