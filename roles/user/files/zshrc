@@ -4,11 +4,14 @@ PATH=/usr/local/sbin:/usr/local/bin:/usr/bin
 
 source ~/.zplug/zplug
 
+zplug "b4b4r07/enhancd", of:enhancd.sh
+zplug "zsh-users/zsh-completions"
 zplug "horosgrisa/zsh-history-substring-search"
 #zplug "zsh-users/zsh-history-substring-search"
-zplug "b4b4r07/enhancd", of:enhancd.sh
-zplug "zsh-users/zsh-syntax-highlighting"
-zplug "kasperisager/zsh-pure"
+zplug "zsh-users/zsh-syntax-highlighting", nice:19
+
+zplug "mafredri/zsh-async"
+zplug "~/.zsh/zsh-pure", from:local
 
 if ! zplug check; then
   zplug install
@@ -16,8 +19,7 @@ fi
 
 zplug load
 
-#eval $(fasd --init auto)
-source /etc/profile.d/fzf.zsh
+[[ -f /etc/profile.d/fzf.zsh ]] && source /etc/profile.d/fzf.zsh
 
 bindkey -e
 source ~/.zsh/aliases.zsh

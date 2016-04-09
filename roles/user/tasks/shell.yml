@@ -1,6 +1,11 @@
 ---
-- name: install zsh
-  pacman: name=zsh state=present
+- name: install tools via pacman
+  pacman: name={{ item }} state=present
+  with_items:
+    - zsh
+    - fzf
+    - tmux
+    - the_silver_searcher
 
 - name: zshrc
   copy: src=files/zshrc dest=/home/{{ user }}/.zshrc
@@ -20,24 +25,20 @@
   become: yes
   become_user: "{{ user }}"
 
+- name: zsh prompt
+  git:
+    repo: "https://github.com/dylanmei/pure.git"
+    dest: "/home/{{ user }}/.zsh/zsh-pure"
+    update: no
+  become: yes
+  become_user: "{{ user }}"
+
 - name: zplug
   git:
     repo: "https://github.com/b4b4r07/zplug.git"
     dest: "/home/{{ user }}/.zplug"
   become: yes
   become_user: "{{ user }}"
-
-- name: install tools via pacman
-  pacman: name={{ item }} state=present
-  with_items:
-    - fzf
-    - the_silver_searcher
-
-- name: install tools via cower
-  cower: name={{ item }} state=present
-  become_user: "{{ user }}"
-  with_items:
-    - fasd
 
 - name: remove bashrc
   file: path={{ item }} state=absent
