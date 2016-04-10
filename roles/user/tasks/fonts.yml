@@ -1,7 +1,14 @@
 ---
-- name: install fonts
+- name: install some fonts
   pacman: name={{ item }} state=present
   with_items:
       - ttf-dejavu
       - ttf-inconsolata
       - ttf-hack
+
+- name: install some more fonts
+  yaourt: name={{ item }} state=latest
+  with_items:
+    - ttf-font-awesome
+  become: yes
+  become_user: "{{ user }}"
