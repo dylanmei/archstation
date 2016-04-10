@@ -13,6 +13,7 @@
     - xorg-xrdb
     - xorg-xfontsel
     - xorg-xev
+    - xorg-xprop
     - polkit
 
 - name: touchpad config
