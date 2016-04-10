@@ -10,3 +10,8 @@
   file: path=/home/{{ user }}/src/go state=directory
   become: yes
   become_user: "{{ user }}"
+
+- name: aws cli
+  yaourt: name=aws-cli state=latest
+  become: yes
+  become_user: "{{ user }}"
