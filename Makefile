@@ -1,5 +1,8 @@
 srcdir   := /usr/src
 passfile ?= vault_pass.txt
+ifeq ($(playbook),)
+	playbook="playbook.yml"
+endif
 ifneq ($(tags),)
 	playbook_tags="--tags=$(tags)"
 endif
@@ -10,7 +13,7 @@ endif
 .DEFAULT_GOAL := playbook
 
 playbook:
-	ansible-playbook playbook.yml $(playbook_tags) $(vault_password_file) \
+	ansible-playbook $(playbook) $(playbook_tags) $(vault_password_file) \
 		-M $(srcdir)/ansible-yaourt
 
 ansible:
