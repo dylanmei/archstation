@@ -2,3 +2,4 @@
 
 - include: zshell.yml
 - include: neovim.yml
+- include: ssh.yml
