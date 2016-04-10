@@ -1,0 +1,12 @@
+---
+
+- name: go and go tools
+  pacman: name={{ item }} state=present
+  with_items:
+    - go
+    - go-tools
+
+- name: go path
+  file: path=/home/{{ user }}/src/go state=directory
+  become: yes
+  become_user: "{{ user }}"

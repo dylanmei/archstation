@@ -1,8 +1,9 @@
 #!/usr/bin/env zsh
 
-PATH=/usr/local/sbin:/usr/local/bin:/usr/bin
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin
 export EDITOR=nvim
 export VISUAL=nvim
+bindkey -e
 
 source ~/.zplug/zplug
 
@@ -21,8 +22,14 @@ fi
 
 zplug load
 
-[[ -f /etc/profile.d/fzf.zsh ]] && source /etc/profile.d/fzf.zsh
-
-bindkey -e
 source ~/.zsh/aliases.zsh
 source ~/.zsh/history.zsh
+
+if [[ -f /etc/profile.d/fzf.zsh ]]; then
+  source /etc/profile.d/fzf.zsh
+fi
+if [[ -e /usr/bin/go ]]; then
+  export GOPATH=~/src/go
+  export PATH=$PATH:$GOPATH/bin
+fi
+

@@ -11,3 +11,4 @@
 
 - include: slack.yml
 - include: dropbox.yml
+- include: develop.yml
