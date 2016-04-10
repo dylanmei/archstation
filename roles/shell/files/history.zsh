@@ -1,5 +1,14 @@
-HISTFILE=~/.zsh-history
-SAVEHIST=8192
+HISTFILE=~/.zsh_history
+SAVEHIST=10000
+HISTSIZE=10000
+
+# Show history
+case $HIST_STAMPS in
+  "mm/dd/yyyy") alias history='fc -fl 1' ;;
+  "dd.mm.yyyy") alias history='fc -El 1' ;;
+  "yyyy-mm-dd") alias history='fc -il 1' ;;
+  *) alias history='fc -l 1' ;;
+esac
 
 # Do not record an event that was just recorded again.
 setopt hist_ignore_dups
@@ -44,4 +53,3 @@ setopt hist_verify
 
 # Enable history system like a Bash
 setopt bang_hist
-
