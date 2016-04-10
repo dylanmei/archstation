@@ -1,4 +1,4 @@
 ---
 
-- include: shell.yml
+- include: zshell.yml
 - include: neovim.yml
