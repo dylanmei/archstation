@@ -1,0 +1,3 @@
+---
+- name: trust cacerts
+  command: trust extract-compat

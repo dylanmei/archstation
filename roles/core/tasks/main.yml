@@ -18,5 +18,6 @@
 - include: yaourt.yml
 - include: docker.yml
   tags: ["docker"]
+- include: cacerts.yml
 - include: vpn.yml
 - include: display.yml
