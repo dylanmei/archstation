@@ -14,13 +14,13 @@ general {
 order += "load"
 order += "disk /"
 order += "wireless _first_"
-#order += "run_watch VPN"
+order += "run_watch VPN"
 order += "battery 0"
 order += "tztime local"
 
 wireless _first_ {
-        format_up = "W: %quality at %essid"
-        format_down = "W: down"
+        format_up = " %quality at %essid"
+        format_down = " down"
 }
 
 battery 0 {
@@ -29,7 +29,7 @@ battery 0 {
 }
 
 run_watch VPN {
-        pidfile = "/var/run/vpnc/pid"
+        pidfile = "/var/run/vpnc.pid"
 }
 
 tztime local {
@@ -37,9 +37,9 @@ tztime local {
 }
 
 load {
-        format = "%1min"
+        format = " %1min"
 }
 
 disk "/" {
-        format = "%avail"
+        format = " %avail"
 }
