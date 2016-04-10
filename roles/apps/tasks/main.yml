@@ -10,3 +10,4 @@
     - thunderbird-exchangecalendar
 
 - include: slack.yml
+- include: dropbox.yml
