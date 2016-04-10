@@ -1,6 +1,8 @@
 #!/usr/bin/env zsh
 
 PATH=/usr/local/sbin:/usr/local/bin:/usr/bin
+export EDITOR=nvim
+export VISUAL=nvim
 
 source ~/.zplug/zplug
 
