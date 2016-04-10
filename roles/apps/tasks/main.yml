@@ -9,6 +9,6 @@
   with_items:
     - thunderbird-exchangecalendar
 
-- include: slack.yml
+- include: chat.yml
 - include: dropbox.yml
 - include: develop.yml

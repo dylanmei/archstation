@@ -1,17 +1,19 @@
 ---
 
-- pacman: name={{ item }} state=latest
-  with_items:
-    - gtk3
-    - gconf
-    - gvfs
-    - xdg-utils
-    - libnotify
-    - libxss
-    - hunspell-en
+#- pacman: name={{ item }} state=latest
+#  with_items:
+#    - gtk3
+#    - gconf
+#    - gvfs
+#    - xdg-utils
+#    - libnotify
+#    - libxss
+#    - hunspell-en
 
-- yaourt: name=slack-desktop state=present
-  become: yes
-  become_user: "{{ user }}"
+- name: chat apps
+  yaourt: name={{ item }} state=present
   with_items:
     - slack-desktop
+    - hipchat
+  become: yes
+  become_user: "{{ user }}"
