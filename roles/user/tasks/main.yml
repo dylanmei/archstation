@@ -9,5 +9,12 @@
 
 - include: git.yml
 - include: fonts.yml
+  tags:
+    - desktop
 - include: dm.yml
+  tags:
+    - i3
+    - desktop
 - include: bindkeys.yml
+  tags:
+    - desktop

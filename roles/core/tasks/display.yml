@@ -14,6 +14,7 @@
     - xorg-xfontsel
     - xorg-xev
     - xorg-xprop
+    - xorg-xrandr
     - polkit
 
 - name: touchpad config

@@ -6,6 +6,7 @@
     - i3-wm
     - i3status
     - dmenu
+    - arandr
     - feh
 
 - name: x configs
@@ -32,5 +33,10 @@
 - name: default wallpaper
   copy: src=wallpaper.jpg dest=/home/{{ user }}/Pictures/wallpaper.jpg force=no owner={{ user }} group={{ user }}
 
-- name: fehbg script
-  copy: src=fehbg.sh dest=/home/{{ user }}/.fehbg force=no owner={{ user }} group={{ user }}
+- name: i3 exec scripts
+  copy: src={{ item }}.sh dest=/home/{{ user }}/.{{ item }} force=no mode=a+x
+  with_items:
+    - fehbg
+    - xrandr
+  become: yes
+  become_user: "{{ user }}"
