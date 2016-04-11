@@ -21,3 +21,6 @@
     owner: "{{ user }}"
     group: "{{ user }}"
   when: vim_plug.stat.exists == False
+
+- name: install python support
+  pip: name=neovim

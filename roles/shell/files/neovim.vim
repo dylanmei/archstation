@@ -4,11 +4,15 @@ call plug#begin()
 Plug 'itchyny/lightline.vim'
 Plug 'mhinz/vim-janah'
 
+Plug 'Shougo/deoplete.nvim'
+
 Plug 'scrooloose/syntastic'
 Plug 'chase/vim-ansible-yaml'
 Plug 'rking/ag.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'jonhiggs/vim-readline'
+
+Plug 'fatih/vim-go'
 
 call plug#end()
 
@@ -85,6 +89,25 @@ nnoremap <Leader>m :CtrlPMRU<cr>
 
 let g:ag_working_path_mode="r"
 nnoremap <Leader>g :Ag
+
+" setup deoplete
+let g:deoplete#enable_at_startup = 1
+
+" setup go
+au FileType go nmap <Leader><S-i> <Plug>(go-info)
+au FileType go nmap <Leader><S-s> <Plug>(go-implements)
+au FileType go nmap <Leader><S-d> <Plug>(go-def)
+au FileType go nmap <Leader><S-t> <Plug>(go-test)
+au FileType go nmap <Leader><S-c> <Plug>(go-coverage)
+au FileType go nmap <Leader><S-b> <Plug>(go-build)
+
+let g:go_auto_type_info = 0
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_fmt_command = "goimports"
 
 " override tabs and spaces
 au FileType make set softtabstop=4 tabstop=4 shiftwidth=4 noexpandtab

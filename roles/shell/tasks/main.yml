@@ -2,4 +2,7 @@
 
 - include: zshell.yml
 - include: neovim.yml
+  tags:
+    - nvim
+    - neovim
 - include: ssh.yml
