@@ -1,2 +1,16 @@
 #!/bin/sh
-xrandr --output HDMI1 --off --output DP1 --primary --mode 1280x720 --pos 0x1080 --rotate normal --output eDP1 --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
+
+primary="DP1"
+external="eDP1"
+
+if (xrandr | grep "$external disconnected"); then
+  xrandr --output $primary --mode 2560x1440 \
+         --output $external --off  \
+         --output HDMI1 --off \
+         --output VIRTUAL1 --off
+else
+  xrandr --output $primary --primary --mode 2560x1440 \
+         --output $external --below $primary --mode 1920x1080 \
+         --output HDMI1 --off \
+         --output VIRTUAL1 --off
+fi
