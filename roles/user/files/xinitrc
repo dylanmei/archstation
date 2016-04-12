@@ -36,4 +36,5 @@ fi
 #xclock -geometry 50x50-1+1 &
 xbindkeys -f $HOME/.config/xbindkeys/config &
 sh $HOME/.xrandr
+syndaemon -d -i 1 -t -k
 exec i3
