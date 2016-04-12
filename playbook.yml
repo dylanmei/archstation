@@ -8,6 +8,10 @@
     - role: core
       tags:
         - core
+    - role: xwin
+      tags:
+        - xwin
+        - core
     - role: user
       tags:
         - user
