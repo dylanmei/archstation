@@ -2,7 +2,7 @@
 - name: ensure main user
   user:
     name: "{{ user }}"
-    groups: users,wheel
+    groups: users,docker,wheel
     password: "{{ password }}"
     createhome: yes
     home: "/home/{{ user }}"
