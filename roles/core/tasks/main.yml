@@ -21,3 +21,4 @@
 - include: cacerts.yml
 - include: vpn.yml
 - include: display.yml
+- include: bluetooth.yml

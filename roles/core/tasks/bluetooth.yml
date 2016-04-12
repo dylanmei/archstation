@@ -1,0 +1,8 @@
+---
+
+- pacman: name={{ item }} state=present
+  with_items:
+    - bluez
+    - bluez-utils
+
+- service: name=bluetooth enabled=yes
