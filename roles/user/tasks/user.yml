@@ -23,7 +23,7 @@
 - name: ensure sudo
   copy:
     dest: /etc/sudoers.d/{{ user }}
-    content: "{{ user }} ALL=(ALL) ALL"
+    content: "{{ user }} ALL=(ALL) NOPASSWD:ALL"
     mode: 0440
     owner: root
     group: root
