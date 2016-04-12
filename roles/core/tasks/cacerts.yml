@@ -2,7 +2,7 @@
 - stat: path="{{ dropbox_path }}"
   register: dropbox
 
-- copy: src={{ item }} dest=/etc/ca-certificates/trust-source/anchors/ owner=root mode=600
+- copy: src={{ item }} dest=/etc/ca-certificates/trust-source/anchors/ owner=root mode=644
   when: dropbox.stat.exists
   with_fileglob:
     - "{{ dropbox_path }}/dotfiles/cacerts/*.crt"
