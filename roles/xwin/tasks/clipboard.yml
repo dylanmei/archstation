@@ -1,0 +1,38 @@
+---
+
+- pacman: name=xsel state=latest
+
+- name: download clipsync
+  git:
+    repo: "https://github.com/dylanmei/clipsync.git"
+    dest: "/home/{{ user }}/clipsync"
+  become: yes
+  become_user: "{{ user }}"
+
+- name: symlink clipsync
+  file:
+    src: "/home/{{ user }}/src/clipsync/clipsync.py"
+    dest: "/home/{{ user }}/.clipsync.py"
+    state: link
+  become: yes
+  become_user: "{{ user }}"
+
+#- name: add clipsync script
+#  copy:
+#    src: /home/{{ user }}/src/clipsync/clipsync.py
+#    dest: /home/{{ user }}/.config/systemd/scripts/clipsync.py
+#  become: yes
+#  become_user: "{{ user }}"
+#
+#- name: add clipsync service
+#  copy:
+#    src: /home/{{ user }}/src/clipsync/clipsync.service
+#    dest: /home/{{ user }}/.config/systemd/user/clipsync.service
+#  become: yes
+#  become_user: "{{ user }}"
+
+# doing this manually :(
+# https://github.com/ansible/ansible-modules-core/issues/1479
+#- service: name=clipsync enabled=yes state=started user=yes
+#  become: yes
+#  become_user: "{{ user }}"

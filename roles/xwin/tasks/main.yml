@@ -14,4 +14,4 @@
     - polkit
 
 - include: touchpad.yml
-#- include: clipboard.yml
+- include: clipboard.yml

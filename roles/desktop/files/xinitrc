@@ -34,7 +34,8 @@ fi
 
 #twm &
 #xclock -geometry 50x50-1+1 &
-xbindkeys -f $HOME/.config/xbindkeys/config &
 sh $HOME/.xrandr
 syndaemon -d -i 1 -t -k
+xbindkeys -f $HOME/.config/xbindkeys/config &
+python $HOME/.clipsync.py -p /tmp/clipsync.pid
 exec i3
