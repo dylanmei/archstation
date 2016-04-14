@@ -88,7 +88,7 @@ nnoremap <Leader>b :CtrlPBuffer<cr>
 nnoremap <Leader>m :CtrlPMRU<cr>
 
 let g:ag_working_path_mode="r"
-nnoremap <Leader>g :Ag
+nnoremap <Leader>g :Ag 
 
 " setup deoplete
 let g:deoplete#enable_at_startup = 1
