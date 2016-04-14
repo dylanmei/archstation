@@ -4,22 +4,22 @@
     - vars/ansible.yml
     - vars/user.yml
     - vars/secrets.yml
+
   roles:
     - role: core
-      tags:
-        - core
-    - role: xwin
-      tags:
-        - xwin
-        - core
+      tags: [core]
+
     - role: user
-      tags:
-        - user
+      tags: [user]
+
     - role: shell
-      tags:
-        - shell
-        - user
+      tags: [user, shell]
+
+    - role: xwin
+      tags: [xwin]
+
+    - role: desktop
+      tags: [user, desktop]
+
     - role: apps
-      tags:
-        - apps
-        - user
+      tags: [user, apps]

@@ -1,14 +1,9 @@
 ---
 
-- name: install drivers
-  pacman: name={{ item }} state=present
-  with_items:
-    - xf86-video-intel
-    - xf86-input-synaptics
-
 - name: install xorg packages
   pacman: name={{ item }} state=present
   with_items:
+    - xf86-video-intel
     - xorg-server
     - xorg-xinit
     - xorg-xrdb
@@ -18,5 +13,5 @@
     - xorg-xrandr
     - polkit
 
-- name: touchpad config
-  copy: src=synaptics.conf dest=/etc/X11/xorg.conf.d/50-synaptics.conf
+- include: touchpad.yml
+#- include: clipboard.yml

@@ -1,20 +1,15 @@
 ---
+
 - include: user.yml
+- include: git.yml
 
 - name: home folders
-  file: path=/home/{{ user }}/{{ item }} state=directory owner={{ user }} group={{ user }}
+  file: path=/home/{{ user }}/{{ item }} state=directory
   with_items:
     - Downloads
     - Pictures
+    - .config/systemd/user
+    - .config/systemd/scripts
+  become: yes
+  become_user: "{{ user }}"
 
-- include: git.yml
-- include: fonts.yml
-  tags:
-    - desktop
-- include: dm.yml
-  tags:
-    - i3
-    - desktop
-- include: bindkeys.yml
-  tags:
-    - desktop
