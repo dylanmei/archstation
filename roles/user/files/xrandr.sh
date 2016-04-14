@@ -1,16 +1,22 @@
 #!/bin/sh
 
-primary="DP1"
-external="eDP1"
+laptop="eDP1"
+external="DP1"
+hdmi="HDMI1"
 
-if (xrandr | grep "$external disconnected"); then
-  xrandr --output $primary --mode 2560x1440 \
-         --output $external --off  \
-         --output HDMI1 --off \
+if (xrandr | grep -e "^$external connected"); then
+  xrandr --output $laptop --primary --mode 2560x1440 --rotate normal \
+         --output $external --above $laptop --mode 1920x1080 --rotate normal \
+         --output $hdmi --off \
+         --output VIRTUAL1 --off
+elif (xrandr | grep -e "^$hdmi connected"); then
+  xrandr --output $laptop --primary --mode 1920x1080 --rotate normal \
+         --output $hdmi --above $laptop --mode 1920x1200 --rotate normal \
+         --output $external --off \
          --output VIRTUAL1 --off
 else
-  xrandr --output $primary --primary --mode 2560x1440 \
-         --output $external --below $primary --mode 1920x1080 \
-         --output HDMI1 --off \
+  xrandr --output $laptop --mode 1920x1080 --rotate normal \
+         --output $external --off  \
+         --output $hdmi --off \
          --output VIRTUAL1 --off
 fi
