@@ -1,8 +1,14 @@
 ---
-- name: docker packages
+
+- name: docker daemon
+  pacman: name=docker state=present
+  notify:
+    - restart docker
+
+- name: docker extras
   pacman: name={{ item }} state=present
   with_items:
-    - docker
     - docker-compose
     - docker-machine
-- service: name=docker state=started
+
+- service: name=docker enabled=yes
