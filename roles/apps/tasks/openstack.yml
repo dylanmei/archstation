@@ -1,0 +1,7 @@
+---
+
+- name: openstack tools
+  pip: name={{ item }} state=latest
+  with_items:
+    - python-novaclient
+    - python-cinderclient
