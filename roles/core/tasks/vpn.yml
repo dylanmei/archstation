@@ -1,9 +1,14 @@
 ---
 
-- pacman: name=vpnc state=latest
+- pacman: name={{ item }} state=latest
+  with_items: [vpnc,openconnect]
 
-- stat: path=/etc/vpnc/default.conf
-  register: vpnc_conf
+- file: path=/etc/openconnect state=directory
 
-- copy: src=vpnc.conf dest=/etc/vpnc/default.conf
-  when: not vpnc_conf.stat.exists
+- stat: path=/etc/openconnect/work
+  register: openconnect_work
+
+- copy: src=openconnect_work.env dest=/etc/openconnect/work
+  when: not openconnect_work.stat.exists
+
+- copy: src=openconnect@work.service dest=/etc/systemd/system/
