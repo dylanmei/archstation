@@ -7,39 +7,40 @@
 # If the above line is not correctly displayed, fix your editor first!
 
 general {
-        colors = true
-        interval = 1
+  colors = true
+  interval = 1
 }
 
 order += "load"
 order += "disk /"
 order += "wireless _first_"
-order += "run_watch VPN"
+order += "path_exists VPN"
 order += "battery 0"
 order += "tztime local"
 
 wireless _first_ {
-        format_up = " %quality at %essid"
-        format_down = " down"
+  format_up = " %quality at %essid"
+  format_down = " down"
 }
 
 battery 0 {
-        format = "%status %percentage"
-        path = "/sys/class/power_supply/BAT1/uevent"
+  format = "%status %percentage"
+  path = "/sys/class/power_supply/BAT1/uevent"
 }
 
-run_watch VPN {
-        pidfile = "/var/run/vpnc.pid"
+path_exists VPN {
+  format = "%title"
+  path = "/proc/sys/net/ipv6/conf/tun0"
 }
 
 tztime local {
-        format = "%Y-%m-%d %H:%M:%S"
+  format = "%Y-%m-%d %H:%M:%S"
 }
 
 load {
-        format = " %1min"
+  format = " %1min"
 }
 
 disk "/" {
-        format = " %avail"
+  format = " %avail"
 }
