@@ -3,12 +3,10 @@
 - pacman: name={{ item }} state=latest
   with_items: [vpnc,openconnect]
 
-- file: path=/etc/openconnect state=directory
+- stat: path="{{ dropbox_path }}/etc/openconnect"
+  register: dropbox_openconnect_vars
 
-- stat: path=/etc/openconnect/work
-  register: openconnect_work
+- file: src={{ dropbox_path }}/etc/openconnect dest=/etc/openconnect state=link
+  when: dropbox_openconnect_vars.stat.exists
 
-- copy: src=openconnect_work.env dest=/etc/openconnect/work
-  when: not openconnect_work.stat.exists
-
-- copy: src=openconnect@work.service dest=/etc/systemd/system/
+- copy: src=openconnect@.service dest=/etc/systemd/system/

@@ -1,9 +1,9 @@
 ---
-- stat: path="{{ dropbox_path }}"
-  register: dropbox
+- stat: path="{{ dropbox_path }}/dotfiles/cacerts"
+  register: dropbox_cacerts
 
 - copy: src={{ item }} dest=/etc/ca-certificates/trust-source/anchors/ owner=root mode=644
-  when: dropbox.stat.exists
+  when: dropbox_cacerts.stat.exists
   with_fileglob:
     - "{{ dropbox_path }}/dotfiles/cacerts/*.crt"
   notify:
