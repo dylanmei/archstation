@@ -1,0 +1,16 @@
+---
+
+- file: path=/home/{{ user }}/.config/ranger state=directory
+  become: yes
+  become_user: "{{ user }}"
+
+- copy: src=ranger.conf dest=/home/{{ user }}/.config/ranger/rc.conf
+  become: yes
+  become_user: "{{ user }}"
+
+- name: ranger console file browser
+  pacman: name={{ item }} state=latest
+  with_items:
+    - w3m
+    - highlight
+    - ranger
