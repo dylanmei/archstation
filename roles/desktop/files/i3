@@ -109,6 +109,25 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
+# color constants
+#
+set $color00 #101218
+set $color01 #1f222d
+set $color02 #252936
+set $color03 #7780a1
+set $color04 #C0C5CE
+set $color05 #d1d4e0
+set $color06 #C9CCDB
+set $color07 #ffffff
+set $color08 #ee829f
+set $color09 #f99170
+set $color0A #ffefcc
+set $color0B #a5ffe1
+set $color0C #97e0ff
+set $color0D #97bbf7
+set $color0E #c0b7f9
+set $color0F #fcc09e
+
 assign [class="Slack"]   $workspace10
 assign [class="HipChat"] $workspace10
 
@@ -145,12 +164,29 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# widow colors
+#                       border  background text    indicator
+client.focused          $color01 $color01    $color07 $color0F
+client.focused_inactive $color02 $color02    $color03 $color0F
+client.unfocused        $color02 $color02    $color03 $color0F
+client.urgent           $color02 $color08    $color00 $color0F
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
   status_command i3status
   font pango: Inconsolata, FontAwesome 12
   strip_workspace_numbers yes
+    colors {
+      separator  $color03
+      background $color01
+      statusline $color05
+#                        border  background text
+      focused_workspace  $color01 $color01    $color07
+      active_workspace   $color01 $color02    $color03
+      inactive_workspace $color01 $color01    $color03
+      urgent_workspace   $color01 $color01    $color08
+    }
 }
 
 for_window [class="^.*"]     border pixel normal
