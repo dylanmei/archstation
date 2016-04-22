@@ -1,8 +1,17 @@
 ---
 
+- name: cli tools
+  pacman: name={{ item }} state=latest
+  with_items:
+    - fzf
+    - tmux
+    - the_silver_searcher
+    - jq
+
+- include: ssh.yml
 - include: zshell.yml
 - include: neovim.yml
   tags:
     - nvim
     - neovim
-- include: ssh.yml
+- include: ranger.yml

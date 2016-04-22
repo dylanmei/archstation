@@ -13,4 +13,3 @@
 - include: dropbox.yml
 - include: develop.yml
 - include: openstack.yml
-- include: ranger.yml
