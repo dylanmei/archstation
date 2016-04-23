@@ -130,7 +130,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -148,8 +148,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# widow colors
-#                       border  background text    indicator
+# widow colors          border   background  text     indicator
 client.focused          $color01 $color01    $color07 $color0F
 client.focused_inactive $color02 $color02    $color03 $color0F
 client.unfocused        $color02 $color02    $color03 $color0F
@@ -161,16 +160,17 @@ bar {
   status_command i3status
   font pango: Inconsolata, FontAwesome 12
   strip_workspace_numbers yes
-    colors {
-      separator  $color03
-      background $color01
-      statusline $color05
-#                        border  background text
-      focused_workspace  $color01 $color01    $color07
-      active_workspace   $color01 $color02    $color03
-      inactive_workspace $color01 $color01    $color03
-      urgent_workspace   $color01 $color01    $color08
-    }
+  colors {
+    separator  $color03
+    background $color01
+    statusline $color05
+
+    # workspace colors border   background  text
+    focused_workspace  $color01 $color01    $color07
+    active_workspace   $color01 $color02    $color03
+    inactive_workspace $color01 $color01    $color03
+    urgent_workspace   $color01 $color01    $color08
+  }
 }
 
 for_window [class="^.*"]     border pixel normal
