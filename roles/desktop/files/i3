@@ -113,7 +113,7 @@ set $color04 #C0C5CE
 set $color05 #d1d4e0
 set $color06 #C9CCDB
 set $color07 #ffffff
-set $color08 #ee829f
+set $color08 #ff3333
 set $color09 #f99170
 set $color0A #ffefcc
 set $color0B #a5ffe1
@@ -132,21 +132,16 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+bindsym $mod+r mode "  "
+mode "  " {
+  bindsym Left resize shrink width 5 px or 1ppt
+  bindsym Down resize grow height 5 px or 1ppt
+  bindsym Up resize shrink height 5 px or 1ppt
+  bindsym Right resize grow width 5 px or 1ppt
 
-        bindsym Left resize shrink width 5 px or 1ppt
-        bindsym Down resize grow height 5 px or 1ppt
-        bindsym Up resize shrink height 5 px or 1ppt
-        bindsym Right resize grow width 5 px or 1ppt
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
 }
-
-bindsym $mod+r mode "resize"
 
 # widow colors          border   background  text     indicator
 client.focused          $color01 $color01    $color07 $color0F
