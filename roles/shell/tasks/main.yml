@@ -15,3 +15,4 @@
     - nvim
     - neovim
 - include: ranger.yml
+- include: basher.yml

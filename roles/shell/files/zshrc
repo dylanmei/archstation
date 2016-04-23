@@ -47,3 +47,7 @@ if [[ -e /usr/bin/go ]]; then
   export PATH=$PATH:$GOPATH/bin
 fi
 
+if [[ -d ~/.basher ]]; then
+  export PATH="$PATH:$HOME/.basher/bin"
+  eval "$(basher init -)"
+fi

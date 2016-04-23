@@ -1,0 +1,8 @@
+---
+
+- name: basher
+  git:
+    repo: "https://github.com/basherpm/basher.git"
+    dest: "/home/{{ user }}/.basher"
+  become: yes
+  become_user: "{{ user }}"
