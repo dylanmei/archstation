@@ -8,6 +8,7 @@
     - dmenu
     - arandr
     - feh
+    - compton
 
 - name: x configs
   copy: src={{ item }} dest=/home/{{ user }}/.{{ item }} owner={{ user }} group={{ user }}

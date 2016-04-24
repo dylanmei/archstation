@@ -174,4 +174,5 @@ hide_edge_borders both
 
 exec_always --no-startup-id sh $HOME/.xrandr
 exec_always --no-startup-id sh $HOME/.fehbg
+exec --no-startup-id compton
 exec --no-startup-id urxvt
