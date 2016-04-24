@@ -13,6 +13,7 @@ Plug 'jonhiggs/vim-readline'
 
 Plug 'fatih/vim-go'
 Plug 'elzr/vim-json'
+Plug 'tpope/vim-markdown'
 Plug 'chase/vim-ansible-yaml'
 
 call plug#end()
@@ -33,6 +34,7 @@ set incsearch
 set smartcase
 set hlsearch
 set softtabstop=2 tabstop=2 shiftwidth=2 expandtab
+set conceallevel=0
 nnoremap <esc><esc> :nohl<cr>
 
 autocmd ColorScheme janah highlight Normal ctermbg=233
@@ -110,7 +112,9 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
 
+" ensure filetypes
+au BufNewFile,BufReadPost *.md set filetype=markdown conceallevel=2
+
 " override tabs and spaces
 au FileType make set softtabstop=4 tabstop=4 shiftwidth=4 noexpandtab
 au FileType go   set softtabstop=4 tabstop=4 shiftwidth=4 noexpandtab
-
