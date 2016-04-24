@@ -7,12 +7,13 @@ Plug 'mhinz/vim-janah'
 Plug 'Shougo/deoplete.nvim'
 
 Plug 'scrooloose/syntastic'
-Plug 'chase/vim-ansible-yaml'
 Plug 'rking/ag.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'jonhiggs/vim-readline'
 
 Plug 'fatih/vim-go'
+Plug 'elzr/vim-json'
+Plug 'chase/vim-ansible-yaml'
 
 call plug#end()
 
