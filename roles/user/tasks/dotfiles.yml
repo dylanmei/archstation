@@ -20,3 +20,11 @@
     - "/usr/src/dotfiles/*"
   become: yes
   become_user: "{{ user }}"
+
+# because no with_dirglob :(
+- name: symlink dotdirs
+  file: src=/usr/src/dotfiles/{{ item }} dest=/home/{{ user }}/.{{ item }} state=link
+  with_items:
+    - zsh
+  become: yes
+  become_user: "{{ user }}"

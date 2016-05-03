@@ -2,32 +2,6 @@
 - name: install zsh
   pacman: name=zsh state=present
 
-- name: zshrc
-  copy: src=files/zshrc dest=/home/{{ user }}/.zshrc
-  become: yes
-  become_user: "{{ user }}"
-
-- name: zsh directory
-  file: dest=/home/{{ user }}/.zsh state=directory
-  become: yes
-  become_user: "{{ user }}"
-
-- name: zsh scripts
-  copy: src=files/{{ item }} dest=/home/{{ user }}/.zsh/{{ item }}
-  with_items:
-    - aliases.zsh
-    - history.zsh
-  become: yes
-  become_user: "{{ user }}"
-
-- name: zsh prompt
-  git:
-    repo: "https://github.com/dylanmei/pure.git"
-    dest: "/home/{{ user }}/.zsh/zsh-pure"
-    update: no
-  become: yes
-  become_user: "{{ user }}"
-
 - name: zplug
   git:
     repo: "https://github.com/b4b4r07/zplug.git"
