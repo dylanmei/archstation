@@ -5,7 +5,8 @@
 - name: download clipsync
   git:
     repo: "https://github.com/dylanmei/clipsync.git"
-    dest: "/home/{{ user }}/clipsync"
+    dest: "/home/{{ user }}/src/clipsync"
+    update: no
   become: yes
   become_user: "{{ user }}"
 
