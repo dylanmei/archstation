@@ -1,0 +1,22 @@
+---
+
+- file:
+    path: /usr/src/dotfiles
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ user }}"
+
+- name: clone dotfiles
+  git:
+    repo: "https://github.com/dylanmei/dotfiles.git"
+    dest: /usr/src/dotfiles
+    update: no
+  become: yes
+  become_user: "{{ user }}"
+
+- name: symlink dotfiles
+  file: src={{ item }} dest=/home/{{ user }}/.{{ item | basename }} state=link
+  with_fileglob:
+    - "/usr/src/dotfiles/*"
+  become: yes
+  become_user: "{{ user }}"

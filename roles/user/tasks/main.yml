@@ -1,7 +1,5 @@
 ---
-
 - include: user.yml
-- include: git.yml
 
 - name: home folders
   file: path=/home/{{ user }}/{{ item }} state=directory
@@ -14,3 +12,7 @@
   become: yes
   become_user: "{{ user }}"
 
+- name: install git
+  pacman: name=git state=latest
+
+- include: dotfiles.yml
