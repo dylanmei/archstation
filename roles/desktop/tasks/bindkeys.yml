@@ -2,13 +2,8 @@
 - name: xbindkeys
   pacman: name=xbindkeys state=latest
 
-- name: xbindkeys config directory
-  file: path=/home/{{ user }}/.config/xbindkeys state=directory
-  become: yes
-  become_user: "{{ user }}"
-
 - name: xbindkeys dotfile
-  file: src=/usr/src/dotfiles/xbindkeys dest=/home/{{ user }}/.config/xbindkeys/config state=link
+  file: src=/usr/src/dotfiles/xbindkeys dest=/home/{{ user }}/.config/xbindkeys state=link
   become: yes
   become_user: "{{ user }}"
   tags: [dotfiles]
