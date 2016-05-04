@@ -44,4 +44,3 @@
   copy: src=wallpaper.jpg dest=/home/{{ user }}/Pictures/wallpaper.jpg force=no
   become: yes
   become_user: "{{ user }}"
-
