@@ -13,18 +13,3 @@
     update: no
   become: yes
   become_user: "{{ user }}"
-
-- name: symlink dotfiles
-  file: src={{ item }} dest=/home/{{ user }}/.{{ item | basename }} state=link
-  with_fileglob:
-    - "/usr/src/dotfiles/*"
-  become: yes
-  become_user: "{{ user }}"
-
-# because no with_dirglob :(
-- name: symlink dotdirs
-  file: src=/usr/src/dotfiles/{{ item }} dest=/home/{{ user }}/.{{ item }} state=link
-  with_items:
-    - zsh
-  become: yes
-  become_user: "{{ user }}"

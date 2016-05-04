@@ -27,7 +27,3 @@
     mode: 0440
     owner: root
     group: root
-
-- copy: src=yaourtrc dest=/home/{{ user }}/.yaourtrc
-  become: yes
-  become_user: "{{ user }}"

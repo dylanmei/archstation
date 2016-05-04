@@ -1,14 +1,18 @@
 ---
+
 - include: user.yml
 
 - name: home folders
   file: path=/home/{{ user }}/{{ item }} state=directory
   with_items:
+    - .config
     - Downloads
     - Pictures
     - src
-    - .config/systemd/user
-    - .config/systemd/scripts
+  become: yes
+  become_user: "{{ user }}"
+
+- copy: src=yaourtrc dest=/home/{{ user }}/.yaourtrc
   become: yes
   become_user: "{{ user }}"
 
@@ -16,4 +20,13 @@
   pacman: name=git state=latest
 
 - include: dotfiles.yml
+  tags: [dotfiles]
+
+- name: git dotfiles
+  file: src=/usr/src/dotfiles/{{ item }} dest=/home/{{ user }}/.{{ item }} state=link
+  with_items:
+    - gitignore
+    - gitconfig
+  become: yes
+  become_user: "{{ user }}"
   tags: [dotfiles]

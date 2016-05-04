@@ -1,15 +1,24 @@
 ---
+
 - name: install neovim
   pacman: name=neovim state=present
 
 - name: neovim config directory
-  file: dest=/home/{{ user }}/.config/nvim state=directory owner={{ user }} group={{ user }}
+  file: dest=/home/{{ user }}/.config/nvim state=directory
+  become: yes
+  become_user: "{{ user }}"
+  tags: [dotfiles]
 
-- name: neovim config init.vim
-  copy: dest=/home/{{ user }}/.config/nvim/init.vim src=neovim.vim owner={{ user }} group={{ user }}
+- name: nvim/init.vim
+  file: src=/usr/src/dotfiles/nvim dest=/home/{{ user }}/.config/nvim/init.vim state=link
+  become: yes
+  become_user: "{{ user }}"
+  tags: [dotfiles]
 
 - name: neovim autoload directory
-  file: dest=/home/{{ user }}/.config/nvim/autoload state=directory owner={{ user }} group={{ user }}
+  file: dest=/home/{{ user }}/.config/nvim/autoload state=directory
+  become: yes
+  become_user: "{{ user }}"
 
 - stat: path=/home/{{ user }}/.config/nvim/autoload/plug.vim
   register: vim_plug
@@ -18,9 +27,9 @@
   get_url:
     url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     dest: "/home/{{ user }}/.config/nvim/autoload/plug.vim"
-    owner: "{{ user }}"
-    group: "{{ user }}"
   when: vim_plug.stat.exists == False
+  become: yes
+  become_user: "{{ user }}"
 
 - name: install python support
   pip: name=neovim
