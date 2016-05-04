@@ -1,9 +1,14 @@
 ---
 - name: xbindkeys
-  pacman: name=xbindkeys state=present
+  pacman: name=xbindkeys state=latest
 
 - name: xbindkeys config directory
-  file: path=/home/{{ user }}/.config/xbindkeys state=directory owner={{ user }} group={{ user }}
+  file: path=/home/{{ user }}/.config/xbindkeys state=directory
+  become: yes
+  become_user: "{{ user }}"
 
-- name: xbindkeys config file
-  copy: src=xbindkeys dest=/home/{{ user }}/.config/xbindkeys/config owner={{ user }} group={{ user }}
+- name: xbindkeys dotfile
+  file: src=/usr/src/dotfiles/xbindkeys dest=/home/{{ user }}/.config/xbindkeys/config state=link
+  become: yes
+  become_user: "{{ user }}"
+  tags: [dotfiles]
