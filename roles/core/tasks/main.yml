@@ -12,6 +12,7 @@
     - curl
     - tree
     - alsa-utils
+    - pulseaudio
     - zip
 
 - include: sudoers.yml
