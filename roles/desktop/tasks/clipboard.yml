@@ -32,6 +32,8 @@
   become: yes
   become_user: "{{ user }}"
 
+- file: src=/usr/src/clipster/clipster dest=/usr/local/bin/clipster state=link
+
 # doing this manually :(
 # https://github.com/ansible/ansible-modules-core/issues/1479
 #- service: name=clipster enabled=yes state=started user=yes
