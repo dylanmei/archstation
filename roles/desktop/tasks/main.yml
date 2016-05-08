@@ -15,6 +15,7 @@
 
 - include: touchpad.yml
 - include: clipboard.yml
+  tags: [clipboard]
 - include: fonts.yml
 - include: dm.yml
 - include: bindkeys.yml

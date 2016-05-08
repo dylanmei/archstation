@@ -1,39 +1,39 @@
 ---
 
-- pacman: name=xsel state=latest
+- pacman: name={{ item }} state=latest
+  with_items:
+    - xsel
+    - xclip
 
-- name: download clipsync
+- file:
+    path: /usr/src/clipster
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ user }}"
+
+- name: download clipster
   git:
-    repo: "https://github.com/dylanmei/clipsync.git"
-    dest: "/home/{{ user }}/src/clipsync"
+    repo: "https://github.com/mrichar1/clipster.git"
+    dest: "/usr/src/clipster"
     update: no
   become: yes
   become_user: "{{ user }}"
 
-- name: symlink clipsync
-  file:
-    src: "/home/{{ user }}/src/clipsync/clipsync.py"
-    dest: "/home/{{ user }}/.clipsync.py"
-    state: link
+- name: clipster ini
+  file: src=/usr/src/dotfiles/clipster dest=/home/{{ user }}/.config/clipster state=link
+  become: yes
+  become_user: "{{ user }}"
+  tags: [dotfiles]
+
+- name: clipster service
+  copy:
+    src: clipster.service
+    dest: /home/{{ user }}/.config/systemd/user/clipster.service
   become: yes
   become_user: "{{ user }}"
 
-#- name: add clipsync script
-#  copy:
-#    src: /home/{{ user }}/src/clipsync/clipsync.py
-#    dest: /home/{{ user }}/.config/systemd/scripts/clipsync.py
-#  become: yes
-#  become_user: "{{ user }}"
-#
-#- name: add clipsync service
-#  copy:
-#    src: /home/{{ user }}/src/clipsync/clipsync.service
-#    dest: /home/{{ user }}/.config/systemd/user/clipsync.service
-#  become: yes
-#  become_user: "{{ user }}"
-
 # doing this manually :(
 # https://github.com/ansible/ansible-modules-core/issues/1479
-#- service: name=clipsync enabled=yes state=started user=yes
+#- service: name=clipster enabled=yes state=started user=yes
 #  become: yes
 #  become_user: "{{ user }}"

@@ -1,0 +1,10 @@
+[Unit]
+Description=Clipster clipboard manager
+
+[Service]
+Restart=always
+RestartSec=10
+ExecStart=/usr/src/clipster/clipster -d -l DEBUG
+
+[Install]
+WantedBy=default.target
