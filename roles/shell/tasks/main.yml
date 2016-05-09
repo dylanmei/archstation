@@ -7,6 +7,7 @@
     - tmux
     - the_silver_searcher
     - jq
+    - inotify-tools
 
 - include: ssh.yml
 - include: zshell.yml
