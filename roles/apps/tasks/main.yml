@@ -3,7 +3,6 @@
 - pacman: name={{ item }} state=latest
   with_items:
     - firefox
-    - opera
 
 - include: chat.yml
 - include: dropbox.yml
