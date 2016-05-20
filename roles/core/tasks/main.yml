@@ -10,6 +10,8 @@
     - python-pip
     - dnsutils
     - curl
+    - socat
+    - gnu-netcat
     - tree
     - alsa-utils
     - pulseaudio
