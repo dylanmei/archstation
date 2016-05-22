@@ -8,6 +8,7 @@
     - rxvt-unicode
     - i3-wm
     - i3status
+    - wmctrl
     - dmenu
     - rofi
     - arandr
@@ -45,6 +46,7 @@
   file: src=/usr/src/dotfiles/{{ item }}.sh dest=/usr/local/bin/{{ item }} state=link
   with_items:
     - rofi-quit
+    - rofi-windows
   tags: [dotfiles]
 
 - name: default wallpaper
