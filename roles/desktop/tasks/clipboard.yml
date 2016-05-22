@@ -5,6 +5,10 @@
     - xsel
     - xclip
 
+- yaourt: name=yank state=latest
+  become: yes
+  become_user: "{{ user }}"
+
 - file:
     path: /usr/src/clipster
     state: directory
