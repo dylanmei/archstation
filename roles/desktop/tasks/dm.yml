@@ -1,4 +1,7 @@
 ---
+- name: startx on login
+  copy: src=zlogin dest=/home/{{ user }}/.zlogin
+
 - name: install display manager
   pacman: name={{ item }} state=present
   with_items:
@@ -6,6 +9,7 @@
     - i3-wm
     - i3status
     - dmenu
+    - rofi
     - arandr
     - feh
     - compton
@@ -37,8 +41,11 @@
   become_user: "{{ user }}"
   tags: [dotfiles]
 
-- name: startx on login
-  copy: src=zlogin dest=/home/{{ user }}/.zlogin
+- name: rofi scripts
+  file: src=/usr/src/dotfiles/{{ item }}.sh dest=/usr/local/bin/{{ item }} state=link
+  with_items:
+    - rofi-quit
+  tags: [dotfiles]
 
 - name: default wallpaper
   copy: src=wallpaper.jpg dest=/home/{{ user }}/Pictures/wallpaper.jpg force=no
