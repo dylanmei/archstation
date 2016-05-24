@@ -1,0 +1,13 @@
+---
+
+- yaourt: name=pulseaudio-ctl state=latest
+  become: yes
+  become_user: "{{ user }}"
+
+- file: path=/home/{{ user }}/.config/pulseaudio-ctl state=directory
+  become: yes
+  become_user: "{{ user }}"
+
+- file: src=/usr/src/dotfiles/pulseaudio-ctl dest=/home/{{ user }}/.config/pulseaudio-ctl/config state=link
+  become: yes
+  become_user: "{{ user }}"

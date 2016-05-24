@@ -15,6 +15,7 @@
     - tree
     - alsa-utils
     - pulseaudio
+    - pulseaudio-alsa
     - zip
     - unzip
 
