@@ -7,10 +7,20 @@
     repo: "https://github.com/b4b4r07/zplug.git"
     dest: "/home/{{ user }}/.zplug"
   become: yes
+
+- name: zsh files
+  file: src=/usr/src/dotfiles/{{ item }} dest=/home/{{ user }}/.{{ item }} state=link
+  with_items:
+    - zsh
+    - zshenv
+    - zshrc
+  become: yes
   become_user: "{{ user }}"
+  tags: [dotfiles]
 
 - name: remove bashrc
-  file: path={{ item }} state=absent
+  file: path=/home/{{ user }}/.{{ item }} state=absent
   with_items:
-    - /home/{{ user }}/.bashrc
-    - /home/{{ user }}/.bash_profile
+    - bashrc
+    - bash_profile
+  tags: [dotfiles]
