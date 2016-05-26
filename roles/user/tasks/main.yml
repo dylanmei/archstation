@@ -6,6 +6,7 @@
   file: path=/home/{{ user }}/{{ item }} state=directory
   with_items:
     - .config
+    - .segreti
     - Downloads
     - Pictures
     - src
