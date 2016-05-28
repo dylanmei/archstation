@@ -2,54 +2,8 @@
 - name: startx on login
   copy: src=zlogin dest=/home/{{ user }}/.zlogin
 
-- name: install display manager
-  pacman: name={{ item }} state=present
-  with_items:
-    - rxvt-unicode
-    - i3-wm
-    - i3status
-    - wmctrl
-    - dmenu
-    - rofi
-    - arandr
-    - feh
-    - compton
-
-- name: x configs
-  file: src=/usr/src/dotfiles/{{ item }} dest=/home/{{ user }}/.{{ item }} state=link
-  with_items:
-    - xinitrc
-    - Xresources
+- name: link xinitrc
+  file: src=/usr/src/dotfiles/xinitrc dest=/home/{{ user }}/.xinitrc state=link mode=0755
   become: yes
   become_user: "{{ user }}"
   tags: [dotfiles]
-
-- name: i3 dotfiles
-  file: src=/usr/src/dotfiles/{{ item }} dest=/home/{{ user }}/.config/{{ item }} state=link
-  with_items:
-    - i3
-    - i3status
-  become: yes
-  become_user: "{{ user }}"
-  tags: [dotfiles]
-
-- name: i3 exec scripts
-  file: src=/usr/src/dotfiles/{{ item }}.sh dest=/home/{{ user }}/.{{ item }} state=link
-  with_items:
-    - fehbg
-    - xrandr
-  become: yes
-  become_user: "{{ user }}"
-  tags: [dotfiles]
-
-- name: rofi scripts
-  file: src=/usr/src/dotfiles/{{ item }}.sh dest=/usr/local/bin/{{ item }} state=link
-  with_items:
-    - rofi-quit
-    - rofi-windows
-  tags: [dotfiles]
-
-- name: default wallpaper
-  copy: src=wallpaper.jpg dest=/home/{{ user }}/Pictures/wallpaper.jpg force=no
-  become: yes
-  become_user: "{{ user }}"
