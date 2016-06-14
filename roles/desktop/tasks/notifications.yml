@@ -1,0 +1,16 @@
+---
+
+- name: dunst
+  pacman: name=dunst state=latest
+
+- name: dunst dotfile
+  file: path=/home/{{ user }}/.config/dunst state=directory
+  become: yes
+  become_user: "{{ user }}"
+  tags: [dotfiles]
+
+- name: dunst dotfile
+  file: src=/usr/src/dotfiles/dunstrc dest=/home/{{ user }}/.config/dunst/dunstrc state=link
+  become: yes
+  become_user: "{{ user }}"
+  tags: [dotfiles]

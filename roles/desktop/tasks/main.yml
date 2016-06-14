@@ -21,3 +21,5 @@
 - include: dm.yml
 - include: wm.yml
 - include: bindkeys.yml
+- include: notifications.yml
+#- include: screenshot.yml
