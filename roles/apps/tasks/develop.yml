@@ -26,3 +26,13 @@
   yaourt: name=aws-cli state=latest
   become: yes
   become_user: "{{ user }}"
+
+- name: mesos
+  pacman: name={{ item }} state=preset
+  with_items:
+    - boost
+    - libsasl
+    - apr
+    - subversion
+    - protobuf
+    - google-glog
