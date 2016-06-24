@@ -20,7 +20,7 @@
     - npm
 
 - name: elixir
-  pacman: name=elixir state=present
+  pacman: name=elixir state=latest
 
 - name: aws cli
   yaourt: name=aws-cli state=latest
@@ -28,7 +28,7 @@
   become_user: "{{ user }}"
 
 - name: mesos
-  pacman: name={{ item }} state=preset
+  pacman: name={{ item }} state=present
   with_items:
     - boost
     - libsasl
