@@ -1,0 +1,5 @@
+---
+
+- name: install weechat
+  pacman: name=weechat state=latest
+

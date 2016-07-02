@@ -17,3 +17,4 @@
     - neovim
 - include: ranger.yml
 - include: basher.yml
+- include: weechat.yml
