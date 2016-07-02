@@ -3,7 +3,6 @@
 - name: setup i3wm environment
   pacman: name={{ item }} state=present
   with_items:
-    - rxvt-unicode
     - i3-wm
     - i3status
     - wmctrl
@@ -48,3 +47,13 @@
   copy: src=wallpaper.jpg dest=/home/{{ user }}/Pictures/wallpaper.jpg force=no
   become: yes
   become_user: "{{ user }}"
+
+- include: termite.yml
+
+- name: link compton.conf
+  file: src=/usr/src/dotfiles/compton.conf dest=/home/{{ user }}/.compton.conf state=link
+  tags: [dotfiles]
+
+- name: link gtk configs
+  file: src=/usr/src/dotfiles/gtk-3.0 dest=/home/{{ user }}/.config/gtk-3.0 state=link
+  tags: [dotfiles]
