@@ -19,7 +19,7 @@
   tags: [clipboard]
 - include: fonts.yml
 - include: dm.yml
-- include: wm.yml
+- include: i3.yml
 - include: bindkeys.yml
 - include: notifications.yml
 #- include: screenshot.yml
