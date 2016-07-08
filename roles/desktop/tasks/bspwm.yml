@@ -1,0 +1,16 @@
+---
+
+- name: install packages
+  pacman: name={{ item }} state=latest
+  with_items:
+    - bspwm
+    - sxhkd
+
+- name: link dotfiles
+  file: src=/usr/src/dotfiles/{{ item }} dest=/home/{{ user }}/.config/{{ item }} state=link
+  with_items:
+    - bspwm
+    - sxhkd
+  become: yes
+  become_user: "{{ user }}"
+  tags: [dotfiles]
