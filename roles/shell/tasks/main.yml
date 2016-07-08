@@ -21,3 +21,5 @@
 
 - name: 8p
   yaourt: name=8p state=latest
+  become: yes
+  become_user: "{{ user }}"
