@@ -16,6 +16,7 @@
     - alsa-utils
     - pulseaudio
     - pulseaudio-alsa
+    - acpi
     - zip
     - unzip
 
