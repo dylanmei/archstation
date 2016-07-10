@@ -21,6 +21,7 @@
 - include: dm.yml
 - include: i3.yml
 - include: bspwm.yml
+- include: rofi.yml
 - include: bindkeys.yml
 - include: dunst.yml
 #- include: screenshot.yml

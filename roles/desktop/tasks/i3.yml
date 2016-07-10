@@ -6,8 +6,6 @@
     - i3-wm
     - i3status
     - wmctrl
-    - dmenu
-    - rofi
     - arandr
     - feh
     - compton
@@ -34,13 +32,6 @@
     - xrandr
   become: yes
   become_user: "{{ user }}"
-  tags: [dotfiles]
-
-- name: link rofi scripts
-  file: src=/usr/src/dotfiles/{{ item }}.sh dest=/usr/local/bin/{{ item }} state=link
-  with_items:
-    - rofi-quit
-    - rofi-windows
   tags: [dotfiles]
 
 - name: default wallpaper
