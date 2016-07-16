@@ -8,6 +8,7 @@
     - the_silver_searcher
     - jq
     - inotify-tools
+    - screenfetch
 
 - include: ssh.yml
 - include: zshell.yml
