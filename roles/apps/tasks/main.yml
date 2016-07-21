@@ -5,6 +5,12 @@
     - firefox
     - thunderbird
 
+- yaourt: name={{ item }} state=latest
+  with_items:
+    - fromscratch-bin
+  become: yes
+  become_user: "{{ user }}"
+
 - include: chat.yml
 - include: dropbox.yml
 - include: develop.yml
