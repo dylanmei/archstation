@@ -22,6 +22,9 @@
 - name: elixir
   pacman: name=elixir state=latest
 
+- name: install lua
+  pacman: name=lua state=latest
+
 - name: aws cli
   yaourt: name=aws-cli state=latest
   become: yes
