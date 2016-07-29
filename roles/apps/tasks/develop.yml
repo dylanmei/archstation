@@ -1,7 +1,7 @@
 ---
 
 - name: go and go tools
-  pacman: name={{ item }} state=present
+  pacman: name={{ item }} state=latest
   with_items:
     - git
     - mercurial
@@ -14,7 +14,7 @@
   become_user: "{{ user }}"
 
 - name: nodejs
-  pacman: name={{ item }} state=present
+  pacman: name={{ item }} state=latest
   with_items:
     - nodejs
     - npm
@@ -31,7 +31,7 @@
   become_user: "{{ user }}"
 
 - name: mesos
-  pacman: name={{ item }} state=present
+  pacman: name={{ item }} state=latest
   with_items:
     - boost
     - libsasl
