@@ -12,6 +12,7 @@
     - curl
     - socat
     - gnu-netcat
+    - lsof
     - tree
     - alsa-utils
     - pulseaudio
