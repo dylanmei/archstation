@@ -7,6 +7,5 @@
   file: src=/usr/src/dotfiles/{{ item }}.sh dest=/usr/local/bin/{{ item }} state=link
   with_items:
     - rofi-quit
-    - rofi-windows
     - rofi-desktops
   tags: [dotfiles]
