@@ -19,6 +19,7 @@
 - include: ranger.yml
 - include: basher.yml
 - include: weechat.yml
+- include: mutt.yml
 
 - name: 8p
   yaourt: name=8p state=latest
