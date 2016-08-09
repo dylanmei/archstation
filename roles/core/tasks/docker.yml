@@ -1,12 +1,12 @@
 ---
 
 - name: docker daemon
-  pacman: name=docker state=present
+  pacman: name=docker state=latest
   notify:
     - restart docker
 
 - name: docker extras
-  pacman: name={{ item }} state=present
+  pacman: name={{ item }} state=latest
   with_items:
     - docker-compose
     - docker-machine
