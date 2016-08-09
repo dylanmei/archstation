@@ -20,6 +20,7 @@
     - acpi
     - zip
     - unzip
+    - fuse
 
 - include: sudoers.yml
 - include: yaourt.yml
