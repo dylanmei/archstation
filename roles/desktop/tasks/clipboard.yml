@@ -1,10 +1,5 @@
 ---
 
-- pacman: name={{ item }} state=latest
-  with_items:
-    - xsel
-    - xclip
-
 - yaourt: name=yank state=latest
   become: yes
   become_user: "{{ user }}"
@@ -22,21 +17,29 @@
     update: no
   become: yes
   become_user: "{{ user }}"
+  notify:
+    - restart clipster
+
+- file: src=/usr/src/clipster/clipster dest=/usr/local/bin/clipster state=link
+  notify:
+    - restart clipster
 
 - name: clipster ini
   file: src=/usr/src/dotfiles/clipster dest=/home/{{ user }}/.config/clipster state=link
   become: yes
   become_user: "{{ user }}"
+  notify:
+    - restart clipster
   tags: [dotfiles]
 
 - name: clipster service
   copy:
     src: clipster.service
     dest: /home/{{ user }}/.config/systemd/user/clipster.service
+  notify:
+    - restart clipster
   become: yes
   become_user: "{{ user }}"
-
-- file: src=/usr/src/clipster/clipster dest=/usr/local/bin/clipster state=link
 
 # doing this manually :(
 # https://github.com/ansible/ansible-modules-core/issues/1479
