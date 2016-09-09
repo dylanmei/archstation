@@ -1,6 +1,7 @@
 ---
 
 - include: user.yml
+- include: gpg.yml
 
 - name: home folders
   file: path=/home/{{ user }}/{{ item }} state=directory
@@ -16,9 +17,6 @@
 - copy: src=yaourtrc dest=/home/{{ user }}/.yaourtrc
   become: yes
   become_user: "{{ user }}"
-
-- name: install git
-  pacman: name=git state=latest
 
 - include: dotfiles.yml
   tags: [dotfiles]
