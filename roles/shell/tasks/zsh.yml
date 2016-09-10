@@ -2,13 +2,13 @@
 - name: install zsh
   pacman: name=zsh state=present
 
-- name: zplug
+- name: fetch zplug
   git:
     repo: "https://github.com/b4b4r07/zplug.git"
     dest: "/home/{{ user }}/.zplug"
   become: yes
 
-- name: zsh files
+- name: link zsh files
   file: src=/usr/src/dotfiles/{{ item }} dest=/home/{{ user }}/.{{ item }} state=link
   with_items:
     - zsh

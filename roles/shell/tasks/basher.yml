@@ -1,6 +1,6 @@
 ---
 
-- name: basher
+- name: fetch basher
   git:
     repo: "https://github.com/basherpm/basher.git"
     dest: "/home/{{ user }}/.basher"

@@ -8,20 +8,13 @@
     - the_silver_searcher
     - jq
     - inotify-tools
-    - screenfetch
+    - openssh
 
-- include: ssh.yml
-- include: zshell.yml
+- include: zsh.yml
+  tags: [zsh]
 - include: neovim.yml
-  tags:
-    - nvim
-    - neovim
+  tags: [nvim, neovim]
 - include: ranger.yml
 - include: basher.yml
 - include: weechat.yml
 - include: mutt.yml
-
-- name: 8p
-  yaourt: name=8p state=latest
-  become: yes
-  become_user: "{{ user }}"

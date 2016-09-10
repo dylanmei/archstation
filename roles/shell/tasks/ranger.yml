@@ -1,17 +1,18 @@
 ---
 
-- file: path=/home/{{ user }}/.config/ranger state=directory
+- name: create ranger config directory
+  file: path=/home/{{ user }}/.config/ranger state=directory
   become: yes
   become_user: "{{ user }}"
 
-- name: ranger console file browser
+- name: install ranger console file browser
   pacman: name={{ item }} state=latest
   with_items:
     - w3m
     - highlight
     - ranger
 
-- name: setup rc.conf
+- name: link ranger config
   file: src=/usr/src/dotfiles/ranger.conf dest=/home/{{ user }}/.config/ranger/rc.conf state=link
   become: yes
   become_user: "{{ user }}"

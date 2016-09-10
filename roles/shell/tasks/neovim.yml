@@ -3,24 +3,23 @@
 - name: install neovim
   pacman: name=neovim state=present
 
-- name: neovim config directory
-  file: dest=/home/{{ user }}/.config/nvim state=directory
+- name: create neovim config directorys
+  file: dest=/home/{{ user }}/{{ item }} state=directory
+  with_items:
+    - .config/nvim
+    - .config/nvim/autoload
   become: yes
   become_user: "{{ user }}"
   tags: [dotfiles]
 
-- name: nvim/init.vim
+- name: link nvim/init.vim
   file: src=/usr/src/dotfiles/nvim dest=/home/{{ user }}/.config/nvim/init.vim state=link
   become: yes
   become_user: "{{ user }}"
   tags: [dotfiles]
 
-- name: neovim autoload directory
-  file: dest=/home/{{ user }}/.config/nvim/autoload state=directory
-  become: yes
-  become_user: "{{ user }}"
-
-- stat: path=/home/{{ user }}/.config/nvim/autoload/plug.vim
+- name: stat plug.vim
+  stat: path=/home/{{ user }}/.config/nvim/autoload/plug.vim
   register: vim_plug
 
 - name: install vim-plug

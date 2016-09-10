@@ -1,3 +1,0 @@
----
-- name: secure shell packages
-  pacman: name=openssh state=latest
