@@ -4,10 +4,12 @@
   with_items:
     - firefox
     - thunderbird
+    - chromium
 
 - yaourt: name={{ item }} state=latest
   with_items:
     - fromscratch-bin
+    - chromium-widevine
   become: yes
   become_user: "{{ user }}"
 

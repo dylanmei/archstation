@@ -1,10 +1,5 @@
 ---
 
-#- pacman: name={{ item }} state=present
-#  with_items:
-#    - firefox
-#    - thunderbird
-
 - yaourt: name={{ item }} state=present
   become: yes
   become_user: "{{ user }}"
