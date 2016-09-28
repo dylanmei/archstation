@@ -20,6 +20,7 @@
   tags: [clipboard]
 - include: fonts.yml
 - include: dm.yml
+- include: hyperterm.yml
 - include: bspwm.yml
 - include: rofi.yml
 - include: dunst.yml
