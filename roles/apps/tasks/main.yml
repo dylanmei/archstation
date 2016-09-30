@@ -5,6 +5,7 @@
     - firefox
     - thunderbird
     - chromium
+    - gimp
 
 - yaourt: name={{ item }} state=latest
   with_items:
