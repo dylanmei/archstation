@@ -1,0 +1,19 @@
+[Unit]
+Description=OpenConnect VPN
+Wants=network.target
+
+[Service]
+EnvironmentFile=/etc/openconnect/env
+Environment=HOME=/home/dylan
+ExecStart=/usr/bin/openconnect \
+  --script=/etc/vpnc/vpnc-script \
+  --user="${USERNAME}" \
+  --authgroup="${AUTHGROUP}" \
+  --servercert="${SERVERCERT}" \
+  --os=android \
+  --csd-user=dylan \
+  --csd-wrapper=/etc/openconnect/csd-wrapper.sh \
+  --token-mode=rsa \
+  "https://${SERVER}"
+
+KillSignal=SIGINT

@@ -10,6 +10,7 @@
     - python-pip
     - dnsutils
     - curl
+    - wget
     - socat
     - gnu-netcat
     - lsof
@@ -27,5 +28,4 @@
 - include: docker.yml
   tags: [docker]
 - include: cacerts.yml
-- include: vpn.yml
 - include: bluetooth.yml

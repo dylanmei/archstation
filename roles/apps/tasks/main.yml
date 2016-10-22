@@ -14,8 +14,9 @@
   become: yes
   become_user: "{{ user }}"
 
-- include: chat.yml
 - include: dropbox.yml
+- include: vpn.yml
+- include: chat.yml
 - include: develop.yml
 - include: openstack.yml
 - include: vmware.yml
