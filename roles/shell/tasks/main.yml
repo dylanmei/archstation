@@ -3,12 +3,15 @@
 - name: cli tools
   pacman: name={{ item }} state=latest
   with_items:
-    - fzf
     - tmux
     - the_silver_searcher
     - jq
     - inotify-tools
     - openssh
+
+- yaourt: name=fzf-git state=latest
+  become: yes
+  become_user: "{{ user }}"
 
 - include: zsh.yml
   tags: [zsh]
