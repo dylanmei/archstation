@@ -20,4 +20,4 @@
   copy: src=csd-wrapper.sh dest=/etc/openconnect/
 
 - name: add vpn1.service
-- copy: src=vpn1.service dest=/etc/systemd/system/
+  copy: src=vpn1.service dest=/etc/systemd/system/

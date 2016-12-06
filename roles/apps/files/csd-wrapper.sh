@@ -2,7 +2,6 @@
 #Cisco Anyconnect CSD wrapper for OpenConnect
 
 # Enter your vpn host here
-CSD_HOSTNAME=oscar.nordstrom.com
 if [[ -z ${CSD_HOSTNAME} ]]
 then
     echo "Define CSD_HOSTNAME with vpn-host in script text. Exiting."
@@ -109,7 +108,7 @@ then
     done
 
     for i in ${BINS[@]} ; do
-        echo "Setting excecution bit on: $BIN_DIR/$i"
+        echo "Setting execution bit on: $BIN_DIR/$i"
         chmod u+x $BIN_DIR/$i
     done
 
