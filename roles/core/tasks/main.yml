@@ -1,5 +1,8 @@
 ---
+
 - include: pacman.yml
+  tags: pacman
+
 - include: network.yml
 
 - name: core packages
