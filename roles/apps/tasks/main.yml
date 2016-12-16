@@ -18,5 +18,4 @@
 - include: vpn.yml
 - include: chat.yml
 - include: develop.yml
-- include: openstack.yml
 - include: vmware.yml
