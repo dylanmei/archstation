@@ -4,7 +4,7 @@
   pacman: update_cache=yes
 
 - name: install reflector
-  pacman: name=reflector state=present
+  pacman: name=reflector state=latest
 
 - stat: path=/etc/pacman.d/mirrorlist
   register: mirrorlist
