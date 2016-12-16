@@ -1,0 +1,10 @@
+---
+
+- name: git dotfiles
+  file: src=/usr/src/dotfiles/{{ item }} dest=/home/{{ user }}/.{{ item }} state=link
+  with_items:
+    - gitignore
+    - gitconfig
+  become: yes
+  become_user: "{{ user }}"
+  tags: [dotfiles]

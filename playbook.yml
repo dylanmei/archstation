@@ -13,9 +13,6 @@
     - role: user
       tags: [user]
 
-    - role: shell
-      tags: [user, shell]
-
     - role: desktop
       tags: [user, desktop]
 

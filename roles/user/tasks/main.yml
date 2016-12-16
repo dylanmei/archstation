@@ -13,18 +13,25 @@
   become: yes
   become_user: "{{ user }}"
 
+- include: dotfiles.yml
+- include: bash.yml
+- include: git.yml
+- include: neovim.yml
+
 - copy: src=yaourtrc dest=/home/{{ user }}/.yaourtrc
   become: yes
   become_user: "{{ user }}"
 
-- include: dotfiles.yml
-  tags: [dotfiles]
-
-- name: git dotfiles
-  file: src=/usr/src/dotfiles/{{ item }} dest=/home/{{ user }}/.{{ item }} state=link
+- name: cli tools
+  pacman: name={{ item }} state=latest
   with_items:
-    - gitignore
-    - gitconfig
-  become: yes
-  become_user: "{{ user }}"
-  tags: [dotfiles]
+    - tmux
+    - the_silver_searcher
+    - jq
+    - inotify-tools
+    - openssh
+    - fzf
+
+- include: ranger.yml
+- include: weechat.yml
+- include: mutt.yml
