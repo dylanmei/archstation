@@ -6,7 +6,7 @@
     password: "{{ password }}"
     createhome: yes
     home: "/home/{{ user }}"
-    shell: /usr/bin/zsh
+    shell: /bin/bash
     generate_ssh_key: no
 
 - name: ensure user directories

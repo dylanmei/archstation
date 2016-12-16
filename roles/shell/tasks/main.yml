@@ -1,5 +1,7 @@
 ---
 
+- include: bash.yml
+
 - name: cli tools
   pacman: name={{ item }} state=latest
   with_items:
@@ -8,16 +10,10 @@
     - jq
     - inotify-tools
     - openssh
+    - fzf
 
-- yaourt: name=fzf-git state=latest
-  become: yes
-  become_user: "{{ user }}"
-
-- include: zsh.yml
-  tags: [zsh]
 - include: neovim.yml
   tags: [nvim, neovim]
 - include: ranger.yml
-- include: basher.yml
 - include: weechat.yml
 - include: mutt.yml
