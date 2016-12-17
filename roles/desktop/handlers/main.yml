@@ -1,6 +1,0 @@
----
-
-- name: restart clipster
-  shell: systemctl --user restart clipter
-  become: yes
-  become_user: "{{ user }}"

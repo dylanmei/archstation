@@ -13,8 +13,5 @@
     - role: user
       tags: [user]
 
-    - role: desktop
-      tags: [user, desktop]
-
     - role: apps
       tags: [user, apps]

@@ -1,9 +1,0 @@
----
-- name: startx on login
-  copy: src=zlogin dest=/home/{{ user }}/.zlogin
-
-- name: link xinitrc
-  file: src=/usr/src/dotfiles/xinitrc dest=/home/{{ user }}/.xinitrc state=link mode=0755
-  become: yes
-  become_user: "{{ user }}"
-  tags: [dotfiles]

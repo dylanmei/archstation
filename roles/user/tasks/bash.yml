@@ -9,6 +9,9 @@
   become_user: "{{ user }}"
   tags: [dotfiles]
 
+- name: copy bash_login
+  copy: src=bash_login dest=/home/{{ user }}/.bash_login
+
 - name: fetch basher
   git:
     repo: "https://github.com/basherpm/basher.git"
