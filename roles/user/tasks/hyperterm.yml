@@ -4,12 +4,12 @@
   pacman: name=nodejs state=latest
 
 - name: install hypterterm
-  yaourt: name=hyperterm state=latest
+  yaourt: name=hyper state=latest
   become: yes
   become_user: "{{ user }}"
 
 - name: symlink hyperterm config
-  file: src=/usr/src/dotfiles/hyperterm.js dest=/home/{{ user }}/.hyperterm.js state=link
+  file: src=/usr/src/dotfiles/hyperterm.js dest=/home/{{ user }}/.hyper.js state=link
   become: yes
   become_user: "{{ user }}"
   tags: [dotfiles]

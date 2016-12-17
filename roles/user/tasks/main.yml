@@ -13,14 +13,14 @@
   become: yes
   become_user: "{{ user }}"
 
+- copy: src=yaourtrc dest=/home/{{ user }}/.yaourtrc
+  become: yes
+  become_user: "{{ user }}"
+
 - include: dotfiles.yml
 - include: bash.yml
 - include: git.yml
 - include: neovim.yml
-
-- copy: src=yaourtrc dest=/home/{{ user }}/.yaourtrc
-  become: yes
-  become_user: "{{ user }}"
 
 - name: cli tools
   pacman: name={{ item }} state=latest
@@ -62,7 +62,29 @@
 - include: touchpad.yml
 - include: pulseaudio.yml
 - include: fonts.yml
-- include: hyperterm.yml
+- include: dropbox.yml
+- include: vpn.yml
 - include: bspwm.yml
+- include: hyperterm.yml
 - include: rofi.yml
 - include: dunst.yml
+
+- name: install gui apps
+  pacman: name={{ item }} state=latest
+  with_items:
+    - firefox
+    - thunderbird
+    - chromium
+    - gimp
+
+- name: install gui apps
+  yaourt: name={{ item }} state=latest
+  with_items:
+    - fromscratch-bin
+    - chromium-widevine
+  become: yes
+  become_user: "{{ user }}"
+
+- include: chat.yml
+- include: develop.yml
+- include: vmware.yml

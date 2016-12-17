@@ -12,6 +12,3 @@
 
     - role: user
       tags: [user]
-
-    - role: apps
-      tags: [user, apps]
