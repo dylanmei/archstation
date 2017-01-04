@@ -1,41 +1,24 @@
 ---
 
-- name: go and go tools
+- name: programming language and tools
   pacman: name={{ item }} state=latest
   with_items:
     - git
     - mercurial
     - go
     - go-tools
+    - nodejs
+    - npm
+    - erlang
+    - elixir
+    - lua
 
 - name: go path
   file: path=/home/{{ user }}/src/go state=directory
   become: yes
   become_user: "{{ user }}"
 
-- name: nodejs
-  pacman: name={{ item }} state=latest
-  with_items:
-    - nodejs
-    - npm
-
-- name: elixir
-  pacman: name=elixir state=latest
-
-- name: install lua
-  pacman: name=lua state=latest
-
 - name: aws cli
   yaourt: name=aws-cli state=latest
   become: yes
   become_user: "{{ user }}"
-
-- name: mesos
-  pacman: name={{ item }} state=latest
-  with_items:
-    - boost
-    - libsasl
-    - apr
-    - subversion
-    - protobuf
-    - google-glog
