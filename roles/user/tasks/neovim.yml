@@ -1,7 +1,7 @@
 ---
 
 - name: install neovim
-  pacman: name=neovim state=present
+  pacman: name=neovim state=latest
 
 - name: create neovim config directorys
   file: dest=/home/{{ user }}/{{ item }} state=directory
