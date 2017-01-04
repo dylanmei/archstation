@@ -21,6 +21,7 @@
 - include: bash.yml
 - include: git.yml
 - include: neovim.yml
+- include: emacs.yml
 
 - name: cli tools
   pacman: name={{ item }} state=latest
