@@ -12,6 +12,12 @@
 - name: copy bash_login
   copy: src=bash_login dest=/home/{{ user }}/.bash_login
 
+- name: add bash helpers
+  pacman: name={{ item }} state=latest
+  with_items:
+    - bash-completion
+    - screenfetch
+
 - name: fetch basher
   git:
     repo: "https://github.com/basherpm/basher.git"
