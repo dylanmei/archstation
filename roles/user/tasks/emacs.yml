@@ -4,15 +4,25 @@
   pacman: name=emacs state=latest
 
 - name: create emacs.d directory
-  file: dest=/home/{{ user }}/.emacs.d state=directory
+  file: dest=/home/{{ user }}/.emacs.d/ state=directory
   become: yes
   become_user: "{{ user }}"
   tags: [dotfiles]
 
 - name: link emacs configs
-  file: src=/usr/src/dotfiles/emacs.d/{{ item }} dest=/home/{{ user }}/.emacs.d/init.el state=link
-  with_items:
-    - init.el
+  file:
+    state: link
+    src:   "{{ item }}"
+    dest:  "/home/{{ user }}/.emacs.d/{{ item | basename }}"
+  with_fileglob: "/usr/src/dotfiles/emacs.d/*"
   become: yes
   become_user: "{{ user }}"
+  tags: [dotfiles]
+
+- name: link emacs support directories
+  file:
+    state: link
+    src:   "/usr/src/dotfiles/emacs.d/{{ item }}"
+    dest:  "/home/{{ user }}/.emacs.d/{{ item }}"
+  with_items: [config, snippets, themes]
   tags: [dotfiles]
