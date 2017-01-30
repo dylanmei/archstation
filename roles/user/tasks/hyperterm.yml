@@ -9,7 +9,7 @@
   become_user: "{{ user }}"
 
 - name: symlink hyperterm config
-  file: src=/usr/src/dotfiles/hyper.js dest=/home/{{ user }}/.hyper.js state=link
+  file: src=/usr/src/dotfiles/hyper-linux.js dest=/home/{{ user }}/.hyper.js state=link
   become: yes
   become_user: "{{ user }}"
   tags: [dotfiles]
