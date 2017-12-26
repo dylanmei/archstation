@@ -23,6 +23,7 @@
   - src
   - Documents
   - Downloads
+  - Pictures
 
 - name: add me to sudoers
   copy:

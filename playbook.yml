@@ -18,8 +18,15 @@
     - unzip
     - curl
     - wget
+    - openssh
     - gnupg
+    - bash
+    - bash-completion
+    - python2
+    - python2-pip
 
   - import_tasks: network.yml
   - import_tasks: sudoers.yml
   - import_tasks: user.yml
+  - import_tasks: dotfiles.yml
+  - import_tasks: neovim.yml

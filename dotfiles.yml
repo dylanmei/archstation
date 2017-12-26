@@ -1,0 +1,26 @@
+---
+
+- name: create dotfiles directory
+  file:
+    path: /usr/src/dotfiles
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ user }}"
+
+- name: clone dotfiles
+  git:
+    repo: "https://github.com/dylanmei/dotfiles.git"
+    dest: /usr/src/dotfiles
+    update: no
+  become: yes
+  become_user: "{{ user }}"
+
+- name: link dotfiles
+  file: src=/usr/src/dotfiles/{{ item.src }} dest=/home/{{ user }}/{{ item.dest }} state=link
+  with_items:
+  - { src: bash,      dest: .bash }
+  - { src: bashrc,    dest: .bashrc }
+  - { src: gitconfig, dest: .gitconfig }
+  - { src: gitignore, dest: .gitignore }
+  become: yes
+  become_user: "{{ user }}"
