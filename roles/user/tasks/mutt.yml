@@ -1,6 +1,0 @@
----
-
-- name: install neomutt
-  yaourt: name=neomutt state=latest
-  become: yes
-  become_user: "{{ user }}"

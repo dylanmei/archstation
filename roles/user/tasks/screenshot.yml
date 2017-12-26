@@ -1,5 +1,0 @@
----
-
-- name: install maim
-  pacman: name={{ item }} state=latest
-  with_items: [maim, slop, xdotool]

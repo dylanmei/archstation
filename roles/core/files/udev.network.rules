@@ -1,2 +1,0 @@
-SUBSYSTEM=="net", ACTION=="add", ATTR{address}=="98:83:89:1e:3b:fa", NAME="plug"
-SUBSYSTEM=="net", ACTION=="add", ATTR{address}=="00:c2:c6:a7:83:0c", NAME="wifi"

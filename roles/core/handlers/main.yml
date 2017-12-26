@@ -1,6 +1,0 @@
----
-- name: trust cacerts
-  command: trust extract-compat
-
-- name: restart docker
-  command: systemctl restart docker

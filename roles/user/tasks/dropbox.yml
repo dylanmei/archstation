@@ -1,8 +1,0 @@
----
-
-- yaourt: name={{ item }} state=present
-  become: yes
-  become_user: "{{ user }}"
-  with_items:
-    - dropbox
-    - dropbox-cli

@@ -1,3 +1,0 @@
-# Prevent Yaourt from asking so many questions
-BUILD_NOCONFIRM=1
-EDITFILES=0

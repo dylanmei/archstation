@@ -1,9 +1,0 @@
----
-
-- name: chat apps
-  yaourt: name={{ item }} state=present
-  with_items:
-    - slack-desktop
-    - telegram-desktop-bin
-  become: yes
-  become_user: "{{ user }}"

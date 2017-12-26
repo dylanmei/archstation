@@ -1,7 +1,0 @@
----
-
-- name: install drivers
-  pacman: name=xf86-input-synaptics state=latest
-
-- name: touchpad config
-  copy: src=synaptics.conf dest=/etc/X11/xorg.conf.d/50-synaptics.conf
