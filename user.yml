@@ -1,0 +1,33 @@
+---
+
+- name: create my user
+  user:
+    name: "{{ user }}"
+    groups: users,wheel
+    password: "{{ password }}"
+    createhome: yes
+    home: "/home/{{ user }}"
+    shell: /bin/bash
+    generate_ssh_key: no
+
+- name: create my user directories
+  file:
+    path: "/home/{{ user }}/{{ item }}"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: 0755
+    state: directory
+  with_items:
+  - .config
+  - .gnupg
+  - src
+  - Documents
+  - Downloads
+
+- name: add me to sudoers
+  copy:
+    dest: "/etc/sudoers.d/{{ user }}"
+    content: "{{ user }} ALL=(ALL) NOPASSWD:ALL"
+    mode: 0440
+    owner: root
+    group: root

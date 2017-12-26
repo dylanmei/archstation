@@ -1,0 +1,8 @@
+Description='Home wifi network'
+Interface=wlp1s0
+Connection=wireless
+Security=wpa
+ESSID={{ netctl_home_essid }}
+IP=dhcp
+ForceConnect=yes
+Key=\"{{ netctl_home_secret }}

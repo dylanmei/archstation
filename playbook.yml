@@ -2,13 +2,24 @@
 
 - hosts: localhost
   vars_files:
-    - vars/ansible.yml
-    - vars/user.yml
-    - vars/secrets.yml
+  - vars/ansible.yml
+  - vars/user.yml
+  - vars/secrets.yml
 
-  roles:
-    - role: core
-      tags: [core]
+  tasks:
+  - name: update pacman cache
+    pacman: update_cache=yes
 
-    - role: user
-      tags: [user]
+  - name: install core packages
+    pacman: name={{ item }}
+    with_items:
+    - sudo
+    - zip
+    - unzip
+    - curl
+    - wget
+    - gnupg
+
+  - import_tasks: network.yml
+  - import_tasks: sudoers.yml
+  - import_tasks: user.yml

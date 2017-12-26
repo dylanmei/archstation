@@ -8,10 +8,9 @@ Ansible setup for a [Samsung NP900X5L-K02US](http://www.samsung.com/us/computer/
 ```
 > wget archfi.sf.net/archfi
 > chmod +x ./archfi && ./archfi
-> pacman -S git make
+> pacman -S git ansible
 > cd /usr/src
 > git clone https://github.com/dylanmei/archstation && cd archstation
 > echo "secret" > vault_pass.txt
-> make bootstrap
-> make
+> ansible-playbook playbook.yml
 ```
